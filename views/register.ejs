@@ -1,19 +1,43 @@
 <% include partials/header %>
 
 <div class="form-wrapper">
-    <form action="/register">
+    <form action="/register" method="POST">
         <div>
-            <input type="text" name="firstname" placeholder="First Name">
-            <input type="text" name="middlename" placeholder="Middle Name">
+            <label for="">Firstname</label>
+            <input type="text" name="user[firstname]" placeholder="First Name">
         </div>
-       
-        <input type="text" name="lastname" placeholder="Last Name">
-        <input type="date" name="dob" >
-        <input type="radio" name="gender" id=""> Male
-        <input type="radio" name="gender" id=""> Female
-        <input type="email" name="" id="" placeholder="Email">
-        <select name="course" id=""></select>
-        <button>Submit</button>
+        <div>
+            <label for="">Lastname</label>
+            <input type="text" name="user[lastname]" placeholder="Last Name">
+        </div>
+        <div>
+            <label for="">Phone Number</label>
+            <input type="text" name="user[phone]" placeholder="Last Name">
+        </div>
+        <div>
+            <label for="">Age</label>
+            <input type="number" name="user[age]" placeholder="Age">
+        </div>
+        <div>
+            <label for="">Gender</label>
+            <input type="radio" name="user[gender]" id="" value="male"> Male
+            <input type="radio" name="user[gender]" id="" value="female"> Female
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="user[email]" id="" placeholder="Email">
+        </div>
+        <div>
+            <label for="">Select Course</label>
+            <select name="user[course]" id="">
+                <option value="course">Course</option>
+                <option value="course">Course</option>
+                <option value="course">Course</option>
+                <option value="course">Course</option>
+            </select>
+        </div>
+        <!-- <select name="course" id=""></select> -->
+        <input type="submit" value="Submit">
     </form>
 </div>
 
