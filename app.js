@@ -16,6 +16,10 @@ app.get("/", (req, res)=>{
 });
 
 
+app.get("/register", (req, res)=>{
+    res.render("register");
+})
+
 
 let port = process.env.PORT || 3000;
 

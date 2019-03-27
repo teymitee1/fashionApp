@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box;
+     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
@@ -9,38 +9,71 @@
 html, body {
     margin: 0;
     height: 100%;
-    color: aliceblue;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    position: relative;
 }
 
 .wrapper {
     display: grid;
-    grid-template-areas: "c1 c1 c1 c2 c2 c2 c2 c2 c2 c2 c2 c3";
-    width: 100%;
+    grid-template-columns: 30% auto 5%;
     height: 100%;
+    margin: 0 auto;
+    width: 90%;
 }
 
 
-
-.wrapper .column1 {
-    grid-area: c1;
-    background-color: black;
+.column1 {
+    background: black;
 }
 
-.wrapper .column2 {
-    grid-area: c2;
-    background-color: gray;
+.column2 {
+    background-color: beige;
 }
 
-.wrapper .column3 {
-    grid-area: c3;
-    background-color:gainsboro;
+
+.brand-logo {
+    position: absolute;
+    top: 5vh;
+    left: 8vw;
+    border: 2px solid rgba(190, 181, 181, 0.4);
+    padding: 15px 10px;
+    border-radius: 5px;
+}
+.header-content {
+    height: 300px;
+    position: relative;
+    max-width: 600px;
+    left: -10vw;
+    top: 25vh;
+}
+
+.main-header, .img-slider {
+    float: left;
+}
+
+.main-header {
+text-align: center;
+margin-left: 50px;
 }
 
 .img-slider {
-    border: 2px solid white;
-    height: 100px;
-    position: absolute;
-    left: 15vw;
-    top: 30vh;
-    max-width: 150px;
+    width: 300px;
+    height: 100%;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    background-color: white;
 }
+
+.btn {
+    text-decoration: none;
+    padding: 10px 30px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.4);
+    color: white;
+
+}
+
+.form-wrapper{
+    width: 450px;
+    margin: 25vh auto;
+}
+
