@@ -1,0 +1,40 @@
+<% include partials/header %>
+
+<div class="form-wrapper">
+    <form action="/paystack/pay" method="POST">
+        <div>
+            <label for="">Name</label>
+            <input type="text" disabled name="user[firstname]"  value="<%= user.firstname + ' ' + user.lastname  %>" placeholder="<%= user.firstname + user.lastname  %>">
+        </div>
+        <div>
+            <label for="">Age</label>
+            <input type="number" name="user[age]" placeholder="Age">
+        </div>
+        <div>
+            <label for="">Amount</label>
+            <input type="number" name="user[number]" placeholder="Age">
+        </div>
+        <div>
+            <label for="">Gender</label>
+            <input type="radio" name="user[gender]" id="" value="male"> Male
+            <input type="radio" name="user[gender]" id="" value="female"> Female
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email" name="user[email]" id="" placeholder="Email">
+        </div>
+        <div>
+            <label for="">Select Course</label>
+            <select name="user[course]" id="">
+                <option value="course">Course</option>
+                <option value="course">Course</option>
+                <option value="course">Course</option>
+                <option value="course">Course</option>
+            </select>
+        </div>
+        <!-- <select name="course" id=""></select> -->
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<% include partials/footer %>
