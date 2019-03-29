@@ -29,9 +29,6 @@ body, html {
     display: block;
     text-decoration: none;
     padding: 10px 20px;
-    width: fit-content;
-    margin-top: 10px;
-    margin-left: 15px;
 }
 
 .header {
