@@ -4,32 +4,36 @@
     <form action="/register" method="POST">
         <div>
             <label for="">Firstname</label>
-            <input type="text" name="user[firstname]" placeholder="First Name">
+            <input type="text" name="firstname" required placeholder="First Name">
         </div>
         <div>
             <label for="">Lastname</label>
-            <input type="text" name="user[lastname]" placeholder="Last Name">
+            <input type="text" name="lastname" required placeholder="Last Name">
         </div>
         <div>
             <label for="">Phone Number</label>
-            <input type="text" name="user[phone]" placeholder="Last Name">
+            <input type="text" name="phone" required placeholder="Phone Number">
         </div>
         <div>
             <label for="">Age</label>
-            <input type="number" name="user[age]" placeholder="Age">
+            <input type="number" required name="age"  placeholder="Age">
+        </div>
+        <div>
+            <label for="">Amount</label>
+            <input type="number" required name="amount"  placeholder="Amount" value="300">
         </div>
         <div>
             <label for="">Gender</label>
-            <input type="radio" name="user[gender]" id="" value="male"> Male
-            <input type="radio" name="user[gender]" id="" value="female"> Female
+            <input type="radio" selected name="gender" id="" value="male"> Male
+            <input type="radio" name="gender" id="" value="female"> Female
         </div>
         <div>
             <label for="">Email</label>
-            <input type="email" name="user[email]" id="" placeholder="Email">
+            <input type="email" name="email" id="" required placeholder="Email">
         </div>
         <div>
             <label for="">Select Course</label>
-            <select name="user[course]" id="">
+            <select name="course" id="" required>
                 <option value="course">Course</option>
                 <option value="course">Course</option>
                 <option value="course">Course</option>
