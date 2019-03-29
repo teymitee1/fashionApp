@@ -14,7 +14,7 @@ const   express         = require('express'),
 const {initializePayment, verifyPayment} = require('./config/paystack')(request);
 
 //CONECTION TO DB
-var url = process.env.DATABASEURL || "mongodb://localhost:27017/fashionApp";
+var url = process.env.DATABASE_URL || "mongodb://localhost:27017/fashionApp";
 mongoose.connect(url, { useNewUrlParser: true });
 
 app.use(bodyParser.json())
