@@ -4,12 +4,19 @@
   "description": "Fashion Training App",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Temitope E. & Toyosi O.",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.20",
+    "nodemailer": "^6.0.0",
+    "request": "^2.88.0"
   }
 }
