@@ -4,27 +4,32 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>T&T | Fashion App</title>
+    <title>IB Fashion Network</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Cantora+One" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cantora+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
 </head>
 
 <body>
+    <div class="container-fluid">
+        <div class="nav">
+            <a class="brand-logo" href="/">IB-Fashion Network</a>
+        </div>
+    </div>
     <div>
         <% if( error && error.length > 0){%>
-            <div class="alert alert-danger" role="alert">
-                <%= error %>    
-            </div>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
         <% }%>
         <%if( success && success.length > 0){%>
-            <div class="alert alert-success" role="alert">
-                <%= success %>    
-            </div>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
         <% }%>
-    </div> 
+    </div>
