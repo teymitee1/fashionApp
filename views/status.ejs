@@ -1,0 +1,21 @@
+<% include partials/header %>
+
+<div class="container">
+    <% if(message == "success"){ %>
+        <div class="success">
+                <i class="fas fa-check fa-10x"></i>
+            <p>Successfull, a message has been sent to your mail</p>
+        </div>
+        <div>
+            <p>Note: you are to come along with a copy of the mail sent to you with your payment reciept. Thank you.</p>
+            </div>
+   <% } %>
+   <% if(message == "existingUser"){ %>
+		<div class="fail">
+			<i class="fas fa-exclamation-triangle fa-10x"></i>
+		<p>User Already Exist</p>
+	</div>
+	<% } %>
+    </div>
+    
+    <% include partials/footer %>

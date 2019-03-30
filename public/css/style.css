@@ -16,34 +16,38 @@ body, html {
     width: 100%;
 }
 .container {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
 }
 
 .nav {
-    height: 15vh;
+    /* height: 15vh; */
     width: 100%;
     box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.8);
     padding: 20px 5px;
+    background: #E7434C;
+    position: fixed;
+    z-index: 10;
 }
 .brand-logo {
     display: block;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 0 20px;
     width: fit-content;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     margin-left: 15px;
+    color: white;
 }
 
 .header {
     display: grid;
     position: relative;
     padding-top: 60px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     height: 90vh;
     text-align: center;
-    background: rgba(231, 67, 75, 0.299);
+    background: rgba(31, 7, 8, 0.551);
 }
 
 .header-title {
@@ -55,10 +59,10 @@ body, html {
 
 .header-title h1 {
     font-size: 4em;
-    color: #E7434C;
+    color: white;
     font-family: 'Cantarell', sans-serif;
     line-height: 4.5rem;
-    text-shadow: 2px 2px 4px black;
+    text-shadow: 0 0 2px white;
 }
 
 .header-title a {
@@ -135,31 +139,19 @@ hr {
 
   .slideshow li:nth-child(1) { 
     background-image: url(../images/photography.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
   }
   .slideshow li:nth-child(2) { 
     background-image: url(../images/fashion.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
     animation-delay: 10s; 
   }
   .slideshow li:nth-child(3) { 
     background-image: url(../images/model.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    animation-delay: 20s;
+      animation-delay: 20s;
   }
 
   .slideshow li:nth-child(4) { 
     background-image: url(../images/makeup.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    animation-delay: 30s;
+      animation-delay: 30s;
   }
 
   @keyframes imageAnimation { 

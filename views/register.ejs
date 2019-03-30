@@ -5,48 +5,56 @@
         <h1 class="text-center">New Application</h1>
         <form action="/register" method="POST">
             <div class="form-grid">
-            <div>
-                <!-- <label for="">Firstname</label> -->
-                <input type="text" name="firstname" required placeholder="First Name">
-            </div>
-            <div>
-                <!-- <label for="">Lastname</label> -->
-                <input type="text" name="lastname" required placeholder="Last Name">
-            </div>
-            <div>
-                <!-- <label for="">Phone Number</label> -->
-                <input type="text" name="phone" required placeholder="Phone Number">
-            </div>
-            <div>
-                <!-- <label for="">Age</label> -->
-                <input type="number" required name="age" placeholder="Age">
-            </div>
-            <div>
-                <label for="">Gender</label>
-                <input type="radio" selected name="gender" id="" value="male"> Male
-                <input type="radio" name="gender" id="" value="female"> Female
-            </div>
-            <div class="span-2">
-                <!-- <label for="">Email</label> -->
-                <input type="email" name="email" id="" required placeholder="Email">
-            </div>
-            
-            <div>
-                <label for="">Select Course</label>
-                <select name="course" id="" required>
-                    <option value="course">Course</option>
-                    <option value="course">Course</option>
-                    <option value="course">Course</option>
-                    <option value="course">Course</option>
-                </select>
-            </div>
-            <div class="span-2 text-center">
-                    <label for="">Amount to Pay</label>
-                    <input type="text" required name="amount" placeholder="Amount" value="2000" readonly>
+                <div>
+                    <!-- <label for="">Firstname</label> -->
+                    <input type="text" name="firstname" required placeholder="First Name">
                 </div>
-        </div>
-    <input type="submit" value="Register">
-    </form>
-</div>
+                <div>
+                    <!-- <label for="">Lastname</label> -->
+                    <input type="text" name="lastname" required placeholder="Last Name">
+                </div>
+                <div>
+                    <!-- <label for="">Phone Number</label> -->
+                    <input type="text" name="phone" required placeholder="Phone Number">
+                </div>
+                <div>
+                    <!-- <label for="">Age</label> -->
+                    <input type="number" required name="age" placeholder="Age">
+                </div>
+                <div>
+                    <label for="">Gender</label>
+                    <input type="radio" selected name="gender" id="" value="male"> Male
+                    <input type="radio" name="gender" id="" value="female"> Female
+                </div>
+                <div class="span-2">
+                    <!-- <label for="">Email</label> -->
+                    <input type="email" name="email" id="" required placeholder="Email">
+                </div>
 
-<% include partials/footer %>
+                <div class="span-2">
+                    <label for="course">Select Course</label>
+                    <div class="form-grid">
+                        <select name="course" id="" required>
+                            <option disabled selected>Select Course 1</option>
+                            <option value="course">Course</option>
+                            <option value="course">Course</option>
+                            <option value="course">Course</option>
+                        </select>
+                        <select name="course" id="" required>
+                            <option disabled selected>Select Course 2</option>
+                            <option value="course">Course</option>
+                            <option value="course">Course</option>
+                            <option value="course">Course</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="span-2 text-center">
+                    <label for="amount">Amount to Pay</label>
+                    <input type="text" required name="amount" placeholder="Amount" value="&#8358 2000" readonly>
+                </div>
+            </div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <% include partials/footer %>

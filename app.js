@@ -62,7 +62,7 @@ app.post("/register", (req, res)=>{
             console.log(err)
         }else if(foundMail){
             console.log(foundMail)
-            res.render("error", {message: "User Already Exist"})
+            res.send("User already Exists")
         }else{
             // console.log(registeredUser)
             // res.render("paystack", {user: registeredUser})
