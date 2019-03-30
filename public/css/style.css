@@ -5,7 +5,8 @@
     -ms-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     font-family: sans-serif;
-    color: #F25922;
+    font-size: 13px;
+    color: #E7434C;
 }
 
 body, html {
@@ -17,10 +18,11 @@ body, html {
 .container {
     width: 90%;
     margin: 0 auto;
+    position: relative;
 }
 
 .nav {
-    height: 20vh;
+    height: 15vh;
     width: 100%;
     box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.8);
     padding: 20px 5px;
@@ -36,50 +38,186 @@ body, html {
 
 .header {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    border: 1px solid #F25922;
-    height: 80vh;
     position: relative;
     padding-top: 60px;
-    margin-top: 20px;
+    margin-top: 5px;
+    height: 90vh;
+    text-align: center;
+    background: rgba(231, 67, 75, 0.299);
 }
 
-.header:after{
-    content: "";
-    background: url("../images/bg.jpg") no-repeat center center;
-    opacity: 0.4;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-}
-
-.header .img-slider {
-    border: 1px solid #F25922;
-    height: 350px;
-    background: #F25922;
-}
-
-.header .header-title {
+.header-title {
     height: 350px;
     text-align: center;
-    padding-left: 5vw;
+    z-index: 5;
+    margin-top: 10vh;
 }
 
-.header .header-title div {
-    text-align: left;
-}
-
-.header .header-title h1 {
+.header-title h1 {
     font-size: 4em;
+    color: #E7434C;
+    font-family: 'Cantarell', sans-serif;
+    line-height: 4.5rem;
+    text-shadow: 2px 2px 4px black;
 }
-.header .header-title a {
-    width: 30%;
-    background-color: #F25922;
+
+.header-title a {
+    background-color: transparent;
     color: white;
-    display: block;
-    padding: 10px;
+    display: inline-block;
     text-decoration: none;
+    width: 30%;
+    padding: 10px;
+    border: 1px solid white;
+    box-shadow: 0 0 0.5px 0 white;
+}
+.header-title a:hover {
+  background: #E7434C;
+  border: none;
+}
+
+.footer {
+    background-color: black;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 5px;
+}
+.footer p {
+    color: white;
+    clear: both;
+}
+
+.social-links {
+    float: right;
+    margin-right: 5vw;
+}
+.social-links a {
+    margin: 10px;
+}
+hr {
+    width: 80%;
+    opacity: 0.05;
+}
+.fa-facebook-f {
+  color: blue;
+}
+.fa-twitter {
+  color: blue;
+}
+
+/*slide-show*/
+.slideshow { 
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .slideshow li { 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite; 
+  }
+
+  .slideshow li:nth-child(1) { 
+    background-image: url(../images/photography.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .slideshow li:nth-child(2) { 
+    background-image: url(../images/fashion.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation-delay: 10s; 
+  }
+  .slideshow li:nth-child(3) { 
+    background-image: url(../images/model.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation-delay: 20s;
+  }
+
+  .slideshow li:nth-child(4) { 
+    background-image: url(../images/makeup.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation-delay: 30s;
+  }
+
+  @keyframes imageAnimation { 
+    0% { 
+      opacity: 0; 
+      animation-timing-function: ease-in;
+    }
+    10% {
+      opacity: 1;
+      animation-timing-function: ease-out;
+    }
+    20% {
+      opacity: 1
+    }
+    30% {
+      opacity: 0
+    }
+  }
+
+  /* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
+
+.slideshow li p {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4em;
+  color: rgb(15, 101, 110);
+  position: relative;
+  top: 60vh;
+  left: 4vw;
+  line-height: 50px;
+  text-shadow: 1px 1px 2px white;
+}
+
+
+.section {
+  text-align: center;
+  padding: 30px 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.grid div img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 760px){
+  .container{
+    width: 100%;
+  }
+  .slideshow li p {
+    font-size: 3em;
+    padding: 0 20px;
+    color: rgb(15, 101, 110);
+    text-shadow: 0 0 3px white;
+  }
 }
