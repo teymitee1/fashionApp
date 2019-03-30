@@ -34,6 +34,10 @@ form {
     border-radius: 10px;
 }
 
+input, label, select, h1 {
+    color: black;
+}
+
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
