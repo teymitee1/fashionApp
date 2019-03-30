@@ -1,5 +1,6 @@
 const   express         = require('express'),
         bodyParser      = require("body-parser")
+        flash           = require("connect-flash"),
         mongoose        = require("mongoose"),
         User            = require("./models/user"),
         nodemailer      = require("nodemailer"),
@@ -21,6 +22,21 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(flash());
+
+app.use(require("express-session")({
+    secret: "cool app",
+    resave: false,
+    saveUninitialized: false
+}))
+
+
+// setting local variables for all routes
+app.use(function(req, res, next){
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+})
 
 // setup email config
 var smtpTransport = nodemailer.createTransport({
@@ -60,6 +76,11 @@ app.post("/register", (req, res)=>{
     User.findOne({"email": req.body.email}, (err, foundMail)=>{
         if(err){
             console.log(err)
+            req.flash("error", err)
+        }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""){
+            console.log("incomplete Form Details");
+            req.flash("error", "Incomplete Form Details")
+            res.redirect("/register")
         }else if(foundMail){
             console.log(foundMail)
            return res.redirect("/error/"+foundMail._id)
@@ -86,8 +107,9 @@ app.post("/register", (req, res)=>{
             initializePayment(form, (error, body)=>{
                 if(error){
                     //handle errors
-                    return console.log(error);
-                    // return res.redirect('/error')
+                    console.log(error);
+                    req.flash("error", "An error Occured, Please Try again")
+                    return res.redirect('/register')
                     return;
                 } else {
                     console.log(body)
@@ -106,6 +128,7 @@ app.get('/paystack/callback', (req,res) => {
         if(error){
             //handle errors appropriately
             console.log(error)
+            req.flash("error", error)
             return res.redirect('/');
         }
         response = JSON.parse(body);        
@@ -114,7 +137,10 @@ app.get('/paystack/callback', (req,res) => {
                 
         User.create(user, (err, registeredUser)=>{
             if(err || !registeredUser){
-                return console.log(err)
+                console.log(err)
+                req.flash("error", err)
+                req.flash("error", err)
+
             }else{
                 console.log(registeredUser)
                 var mail = {
@@ -126,10 +152,13 @@ app.get('/paystack/callback', (req,res) => {
                 }
                 smtpTransport.sendMail(mail, function(error, response){
                     if(error){
-                       return console.log(error);
+                       console.log(error);
+                       req.flash("error", "Email error occured")
+                       return res.redirect("/success/"+registeredUser._id)
                     }else{
                         console.log(mail)
                         // res.send("successful, a mail has been sent to you")
+                        req.flash("success", "Registeration Successful, a mail has been sent to you")
                         res.redirect("/success/"+registeredUser._id)
                     }
                     smtpTransport.close();
@@ -144,7 +173,8 @@ app.get("/error/:id", (req, res)=>{
     User.findById(req.params.id, (err, foundUser)=>{
         if(err || !foundUser){
             console.log(err)
-            res.redirect("/")
+            req.flash("error", err+" No such user exists")
+            return res.redirect("/")
         }else{
             return res.render("error", {user: foundUser})
         }
@@ -155,6 +185,7 @@ app.get('/success/:id', (req, res)=>{
     User.findById(req.params.id, (err, foundUser)=>{
         if(err ||!foundUser){
             console.log(err)
+            req.flash("error", err+" No such user exists" )
             return res.redirect("/")
         }else{
            return res.render("success", {user: foundUser})
