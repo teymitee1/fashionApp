@@ -212,4 +212,7 @@ hr {
     color: rgb(15, 101, 110);
     text-shadow: 0 0 3px white;
   }
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
