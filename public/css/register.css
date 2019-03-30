@@ -93,6 +93,13 @@ label[for=amount]{
     font-size: xx-large;
     font-weight: 700;
 }
+
+label[for=gender]{
+    padding-top: 16px;
+    margin-right: 50px;
+}
+
+
 .course {
     font-size: larger;
     font-weight: 700;

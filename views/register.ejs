@@ -21,10 +21,12 @@
                     <!-- <label for="">Age</label> -->
                     <input type="number" required name="age" placeholder="Age">
                 </div>
-                <div span-2>
-                    <label for="">Gender: </label>
-                    Male <input type="radio" selected name="gender" id="" value="male">
-                    Female <input type="radio" name="gender" id="" value="female">
+                <div class="span-2 text-center" style="display: flex;">
+                    <label for="gender">Gender:</label>
+                    <div class="form-grid text-center">
+                        <p>Male <input type="radio" selected name="gender" id="" value="male"></p>
+                        <p>Female <input type="radio" name="gender" id="" value="female"></p>
+                    </div>
                 </div>
                 <div class="span-2">
                     <!-- <label for="">Email</label> -->
@@ -60,8 +62,9 @@
                 <div class="span-2 text-center">
                     <label for="amount">Amount to Pay</label>
                     <div class="naira-control">
-                  <span>&#8358;</span><input type="text" required name="amount" placeholder="Amount" value="2000" readonly>
-                </div>
+                        <span>&#8358;</span><input type="text" required name="amount" placeholder="Amount" value="2000"
+                            readonly>
+                    </div>
                 </div>
             </div>
             <input type="submit" value="Register">
