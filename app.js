@@ -62,11 +62,7 @@ app.post("/register", (req, res)=>{
             console.log(err)
         }else if(foundMail){
             console.log(foundMail)
-<<<<<<< HEAD
-            res.send("User already Exists")
-=======
            return res.redirect("/error/"+foundMail._id)
->>>>>>> dcca5666ba63ce2735f47b4b657254cd4b153f81
         }else{
             // console.log(registeredUser)
             // res.render("paystack", {user: registeredUser})
