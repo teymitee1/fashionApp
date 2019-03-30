@@ -62,7 +62,7 @@ app.post("/register", (req, res)=>{
             console.log(err)
         }else if(foundMail){
             console.log(foundMail)
-            res.render("error", {message: "User Already Exist"})
+           return res.redirect("/error/"+foundMail._id)
         }else{
             // console.log(registeredUser)
             // res.render("paystack", {user: registeredUser})
@@ -106,7 +106,7 @@ app.get('/paystack/callback', (req,res) => {
         if(error){
             //handle errors appropriately
             console.log(error)
-            return res.redirect('/error');
+            return res.redirect('/');
         }
         response = JSON.parse(body);        
         user.payment_status = "Paid";
@@ -129,7 +129,8 @@ app.get('/paystack/callback', (req,res) => {
                        return console.log(error);
                     }else{
                         console.log(mail)
-                        res.send("successful, a mail has been sent to you")
+                        // res.send("successful, a mail has been sent to you")
+                        res.redirect("/success/"+registeredUser._id)
                     }
                     smtpTransport.close();
                 });
@@ -139,16 +140,25 @@ app.get('/paystack/callback', (req,res) => {
     })
 });
 
-app.get('/receipt/:id', (req, res)=>{
-    const id = req.params.id;
-    User.findById(id).then((user)=>{
-        if(!user){
-            //handle error when the donor is not found
-            res.redirect('/error')
+app.get("/error/:id", (req, res)=>{
+    User.findById(req.params.id, (err, foundUser)=>{
+        if(err || !foundUser){
+            console.log(err)
+            res.redirect("/")
+        }else{
+            return res.render("error", {user: foundUser})
         }
-        res.render('success.pug',{donor});
-    }).catch((e)=>{
-        res.redirect('/error')
+    })
+})
+
+app.get('/success/:id', (req, res)=>{
+    User.findById(req.params.id, (err, foundUser)=>{
+        if(err ||!foundUser){
+            console.log(err)
+            return res.redirect("/")
+        }else{
+           return res.render("success", {user: foundUser})
+        }
     })
 })
 
