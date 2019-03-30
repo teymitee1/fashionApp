@@ -138,6 +138,7 @@ hr {
     position: absolute;
     top: 0;
     left: 0;
+    margin: 0;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -191,9 +192,11 @@ hr {
   color: rgb(15, 101, 110);
   position: relative;
   top: 60vh;
-  left: 4vw;
+  left: 10px;
   line-height: 50px;
   text-shadow: 1px 1px 2px white;
+  widows: 100%;
+
 }
 
 
@@ -232,4 +235,8 @@ hr {
   .grid div img {
     width: 60%;
   }
+}
+
+.alert-danger {
+  background-color: red;
 }
