@@ -32,7 +32,7 @@ app.use(require("express-session")({
 
 
 // setting local variables for all routes
-app.use(function (req, res, next) {
+app.use(function(req, res, next){
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");
     next();
@@ -50,12 +50,12 @@ var smtpTransport = nodemailer.createTransport({
     }
 });
 
-app.get("/", (req, res) => {
+app.get("/", (req, res)=>{
     res.render("landing");
 });
 
 
-app.get("/register", (req, res) => {
+app.get("/register", (req, res)=>{
     res.render("register");
 })
 
@@ -72,11 +72,12 @@ var user = {
     course: ""
 }
 
-app.post("/register", (req, res) => {
-    User.findOne({ "email": req.body.email }, (err, foundMail) => {
-        if (err) {
+app.post("/register", (req, res)=>{
+    User.findOne({"email": req.body.email}, (err, foundMail)=>{
+        if(err){
             console.log(err)
             req.flash("error", err)
+            return res.redirect("/")
         }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""){
             console.log("incomplete Form Details");
             req.flash("error", "Incomplete Form Details")
@@ -101,11 +102,11 @@ app.post("/register", (req, res) => {
                 email: user.email
             }
             form.metadata = {
-                full_name: form.fullName
+                full_name : form.fullName
             }
             form.amount *= 100;
-            initializePayment(form, (error, body) => {
-                if (error) {
+            initializePayment(form, (error, body)=>{
+                if(error){
                     //handle errors
                     console.log(error);
                     req.flash("error", "An error Occured, Please Try again")
@@ -119,19 +120,19 @@ app.post("/register", (req, res) => {
             });
         }
     })
-
+   
 })
 
-app.get('/paystack/callback', (req, res) => {
+app.get('/paystack/callback', (req,res) => {
     const ref = req.query.reference;
-    verifyPayment(ref, (error, body) => {
-        if (error) {
+    verifyPayment(ref, (error,body)=>{
+        if(error){
             //handle errors appropriately
             console.log(error)
             req.flash("error", error)
             return res.redirect('/');
         }
-        response = JSON.parse(body);
+        response = JSON.parse(body);        
         user.payment_status = "Paid";
         user.reference = response.data.reference;
                 
@@ -139,15 +140,16 @@ app.get('/paystack/callback', (req, res) => {
             if(err || !registeredUser){
                 console.log(err)
                 req.flash("error", err)
-                return res.redirect("/")
+                req.flash("error", err)
+
             }else{
                 console.log(registeredUser)
                 var mail = {
                     from: "Ibadan Fashion Week",
                     to: registeredUser.email,
                     subject: 'Registeration Complete',
-                    html: "Congratulations: " + registeredUser.firstname + " " + registeredUser.lastname +
-                        "<br />Your Payment has been recieved and confirmed for ibadan fashion week. <br />Please come along to the event with this mail as proof",
+                    html: "Congratulations: "+ registeredUser.firstname + " "+registeredUser.lastname + 
+                    "<br />Your Payment has been recieved and confirmed for ibadan fashion week. <br />Please come along to the event with this mail as proof",
                 }
                 smtpTransport.sendMail(mail, function(error, response){
                     if(error){
@@ -162,15 +164,15 @@ app.get('/paystack/callback', (req, res) => {
                     }
                     smtpTransport.close();
                 });
-
+            
             }
         })
     })
 });
 
-app.get("/error/:id", (req, res) => {
-    User.findById(req.params.id, (err, foundUser) => {
-        if (err || !foundUser) {
+app.get("/error/:id", (req, res)=>{
+    User.findById(req.params.id, (err, foundUser)=>{
+        if(err || !foundUser){
             console.log(err)
             req.flash("error", err+" No such user exists")
             return res.redirect("/")
@@ -191,6 +193,7 @@ app.get('/success/:id', (req, res)=>{
         }
     })
 })
+
 
 app.get("*", (req, res) => {
     res.render("404")
