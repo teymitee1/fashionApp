@@ -181,25 +181,17 @@ app.get("/error/:id", (req, res) => {
     })
 })
 
-//=======================================
-
 app.get('/success/:id', (req, res) => {
-
-    return res.render("success")
-
+    User.findById(req.params.id, (err, foundUser) => {
+        if (err || !foundUser) {
+            console.log(err)
+            req.flash("error", err + " No such user exists")
+            return res.redirect("/")
+        } else {
+            return res.render("success", { user: foundUser })
+        }
+    })
 })
-
-// app.get('/success/:id', (req, res) => {
-//     User.findById(req.params.id, (err, foundUser) => {
-//         if (err || !foundUser) {
-//             console.log(err)
-//             req.flash("error", err + " No such user exists")
-//             return res.redirect("/")
-//         } else {
-//             return res.render("success", { user: foundUser })
-//         }
-//     })
-// })
 
 
 app.get("*", (req, res) => {

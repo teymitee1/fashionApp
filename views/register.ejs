@@ -3,34 +3,43 @@
 <div class="container">
     <div class="form-wrapper">
         <h1 class="text-center">New Application</h1>
-        <form action="/register" method="POST">
+        <form action="/register" method="POST" name="myForm" onsubmit="return validateForm()">
             <div class="form-grid">
                 <div>
                     <!-- <label for="">Firstname</label> -->
-                    <input type="text" name="firstname" required placeholder="First Name">
+                    <input type="text" name="firstname" placeholder="First Name">
+                    <span class="field" id="field1"></span>
                 </div>
                 <div>
                     <!-- <label for="">Lastname</label> -->
-                    <input type="text" name="lastname" required placeholder="Last Name">
+                    <input type="text" name="lastname"  placeholder="Last Name">
+                    <span class="field" id="field2"></span>
                 </div>
                 <div>
                     <!-- <label for="">Phone Number</label> -->
-                    <input type="text" name="phone" required placeholder="Phone Number">
+                    <input type="text" name="phone"  placeholder="Phone Number">
+                    <span class="field" id="field3"></span>
                 </div>
                 <div>
                     <!-- <label for="">Age</label> -->
-                    <input type="number" required name="age" placeholder="Age">
+                    <input type="number"  name="age" placeholder="Age">
+                    <span class="field" id="field4"></span>
                 </div>
-                <div class="span-2 text-center" style="display: flex;">
+                <div class="span-2 text-center">
+                    <div style="display:flex">
                     <label for="gender">Gender:</label>
                     <div class="form-grid text-center">
-                        <p>Male <input type="radio" selected name="gender" id="" value="male"></p>
-                        <p>Female <input type="radio" name="gender" id="" value="female"></p>
+                        <p>Male <input type="radio" name="gender" id="gender" value="male"></p>
+                        <p>Female <input type="radio" name="gender" id="gender" value="female"></p>
                     </div>
                 </div>
+                    <span class="field" id="field5"></span>
+                </div>
+        
                 <div class="span-2">
                     <!-- <label for="">Email</label> -->
-                    <input type="email" name="email" id="" required placeholder="Email">
+                    <input type="email" name="email" id=""  placeholder="Email">
+                    <span class="field" id="field6"></span>
                 </div>
 
                 <div class="span-2">
@@ -38,31 +47,18 @@
                     <hr class="form-divider">
                     <span class="space"></span>
                     <div class="form-grid checkbox-control">
-                        <div><input type="checkbox" name="course"> Photography</div>
-                        <div><input type="checkbox" name="course"> Fashing Design|Styling</div>
-                        <div><input type="checkbox" name="course"> Modelling</div>
-                        <div><input type="checkbox" name="course"> Make Up </div>
+                        <div><input type="checkbox" name="course[]" value="Photography"> Photography</div>
+                        <div><input type="checkbox" name="course[]" value="Fashing Design & Styling"> Fashing Design|Styling</div>
+                        <div><input type="checkbox" name="course[]" value="Modelling"> Modelling</div>
+                        <div><input type="checkbox" name="course[]" value="Make Up"> Make Up </div>
                     </div>
+                    <span class="field" id="field7" class="span-2"></span>
                     <hr class="form-divider">
-                    <!-- <div class="form-grid">
-                        <select name="course" id="" required>
-                            <option disabled selected>Select Course 1</option>
-                            <option value="course">Course</option>
-                            <option value="course">Course</option>
-                            <option value="course">Course</option>
-                        </select>
-                        <select name="course" id="" required>
-                            <option disabled selected>Select Course 2</option>
-                            <option value="course">Course</option>
-                            <option value="course">Course</option>
-                            <option value="course">Course</option>
-                        </select>
-                    </div> -->
                 </div>
                 <div class="span-2 text-center">
                     <label for="amount">Amount to Pay</label>
                     <div class="naira-control">
-                        <span>&#8358;</span><input type="text" required name="amount" placeholder="Amount" value="2000"
+                        <span>&#8358;</span><input type="text"  name="amount" placeholder="Amount" value="2000"
                             readonly>
                     </div>
                 </div>
