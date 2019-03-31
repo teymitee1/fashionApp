@@ -1,6 +1,11 @@
 <% include partials/header %>
 
-<h1><%=user.firstname + " " + user.lastname%> already exists</h1>
+<div class="status-wrapper">
+    <div class="error">
+        <i class="fas fa-exclamation-triangle fa-10x"></i>
+        <h1><%= user.firstname + " " + user.lastname%> already exists %></h1>
+        <a class="status-btn" href="/success/<%=user._id%>">Check Payment Status</a>
+    </div>
+</div>
 
-<a href="/success/<%=user._id%>">Check Payment Status</a>
 <% include partials/footer %>

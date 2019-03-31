@@ -1,6 +1,14 @@
 <% include partials/header %>
 
-<p>Name:<%=user.firstname + " " + user.lastname%> </p>
-<p>Status:<%=user.payment_status%> </p>
+<div class="status-wrapper">
+    <div class="success">
+        <i class="fas fa-check fa-10x"></i>
+        <p>Name:<%=user.firstname + " " + user.lastname%> </p>
+        <p>Status:<%=user.payment_status%> </p>
+    </div>
+</div>
+
+
+
 
 <% include partials/footer %>
