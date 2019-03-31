@@ -21,10 +21,12 @@
                     <!-- <label for="">Age</label> -->
                     <input type="number" required name="age" placeholder="Age">
                 </div>
-                <div>
-                    <label for="">Gender</label>
-                    <input type="radio" selected name="gender" id="" value="male"> Male
-                    <input type="radio" name="gender" id="" value="female"> Female
+                <div class="span-2 text-center" style="display: flex;">
+                    <label for="gender">Gender:</label>
+                    <div class="form-grid text-center">
+                        <p>Male <input type="radio" selected name="gender" id="" value="male"></p>
+                        <p>Female <input type="radio" name="gender" id="" value="female"></p>
+                    </div>
                 </div>
                 <div class="span-2">
                     <!-- <label for="">Email</label> -->
@@ -32,8 +34,17 @@
                 </div>
 
                 <div class="span-2">
-                    <label for="course">Select Course</label>
-                    <div class="form-grid">
+                    <h2 class="course">Select Courses</h2>
+                    <hr class="form-divider">
+                    <span class="space"></span>
+                    <div class="form-grid checkbox-control">
+                        <div><input type="checkbox" name="course"> Photography</div>
+                        <div><input type="checkbox" name="course"> Fashing Design|Styling</div>
+                        <div><input type="checkbox" name="course"> Modelling</div>
+                        <div><input type="checkbox" name="course"> Make Up </div>
+                    </div>
+                    <hr class="form-divider">
+                    <!-- <div class="form-grid">
                         <select name="course" id="" required>
                             <option disabled selected>Select Course 1</option>
                             <option value="course">Course</option>
@@ -46,11 +57,18 @@
                             <option value="course">Course</option>
                             <option value="course">Course</option>
                         </select>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="span-2 text-center">
                     <label for="amount">Amount to Pay</label>
+<<<<<<< HEAD
                     <input type="text" required name="amount" placeholder="Amount" value="2000" readonly>
+=======
+                    <div class="naira-control">
+                        <span>&#8358;</span><input type="text" required name="amount" placeholder="Amount" value="2000"
+                            readonly>
+                    </div>
+>>>>>>> b7b27cbdaa96244503b97c101cae959683a224cb
                 </div>
             </div>
             <input type="submit" value="Register">

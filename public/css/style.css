@@ -5,8 +5,7 @@
     -ms-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     font-family: sans-serif;
-    font-size: 13px;
-    color: #E7434C;
+    font-size: 16px;
 }
 
 body, html {
@@ -22,20 +21,19 @@ body, html {
 }
 
 .nav {
-    /* height: 15vh; */
     width: 100%;
     box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.8);
     padding: 20px 5px;
     background: #E7434C;
     position: fixed;
     z-index: 10;
+    top: 0;
 }
 .brand-logo {
     display: block;
     text-decoration: none;
     padding: 0 20px;
     width: fit-content;
-    /* margin-top: 10px; */
     margin-left: 15px;
     color: white;
 }
@@ -44,10 +42,11 @@ body, html {
     display: grid;
     position: relative;
     padding-top: 60px;
-    /* margin-top: 5px; */
-    height: 90vh;
+    height: 95vh;
     text-align: center;
     background: rgba(31, 7, 8, 0.551);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.523);
+    z-index: 3;
 }
 
 .header-title {
@@ -61,27 +60,33 @@ body, html {
     font-size: 4em;
     color: white;
     font-family: 'Cantarell', sans-serif;
-    line-height: 4.5rem;
     text-shadow: 0 0 2px white;
 }
 
 .header-title a {
-    background-color: transparent;
-    color: white;
-    display: inline-block;
-    text-decoration: none;
-    width: 30%;
-    padding: 10px;
-    border: 1px solid white;
-    box-shadow: 0 0 0.5px 0 white;
+  background-color: white;
+  color: black;
+  border: 2px solid #e7e7e7;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 30%;
+  box-shadow: 0 -3px 8px 0 rgb(162, 141, 141);
+  font-size: 1em;
 }
 .header-title a:hover {
-  background: #E7434C;
-  border: none;
+  background-color: #e7e7e7;
+  box-shadow: none;
 }
 
 .footer {
-    background-color: black;
+    background-color: #E7434C;
     width: 100%;
     padding: 10px 0;
     text-align: center;
@@ -92,22 +97,26 @@ body, html {
     clear: both;
 }
 
-.social-links {
-    float: right;
-    margin-right: 5vw;
+.social-links a {
+  margin: 100px auto;
 }
 .social-links a {
     margin: 10px;
 }
 hr {
     width: 80%;
-    opacity: 0.05;
+    opacity: 0.09;
+    margin-bottom: 30px;
 }
 .fa-facebook-f {
-  color: blue;
+  color: rgb(67, 67, 248);
 }
 .fa-twitter {
-  color: blue;
+  color: rgb(67, 67, 248);
+}
+
+.fa-instagram {
+  color: brown;
 }
 
 /*slide-show*/
@@ -129,6 +138,7 @@ hr {
     position: absolute;
     top: 0;
     left: 0;
+    margin: 0;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -180,11 +190,13 @@ hr {
   font-family: 'Great Vibes', cursive;
   font-size: 4em;
   color: rgb(15, 101, 110);
-  position: relative;
+  position: absolute;
   top: 60vh;
-  left: 4vw;
+  left: 8vw;
   line-height: 50px;
   text-shadow: 1px 1px 2px white;
+  widows: 100%;
+
 }
 
 
@@ -202,6 +214,11 @@ hr {
   width: 100%;
 }
 
+.section h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
 @media only screen and (max-width: 760px){
   .container{
     width: 100%;
@@ -211,5 +228,11 @@ hr {
     padding: 0 20px;
     color: rgb(15, 101, 110);
     text-shadow: 0 0 3px white;
+  }
+  .grid {
+    grid-template-columns: none;
+  }
+  .grid div img {
+    width: 60%;
   }
 }
