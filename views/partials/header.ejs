@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
     <link rel="stylesheet" href="/css/register.css">
     <link rel="stylesheet" href="/css/status.css">
+    <link rel="stylesheet" href="/css/animate.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
@@ -17,23 +18,25 @@
 </head>
 
 <body>
-    <div>
-        <div class="container">
+    <div class="page-container">
+        <div class="content-wrap">
             <div class="nav">
-                <a class="brand-logo" href="/">IB-Fashion Network</a>
+                <div>
+                    <a class="brand-logo" href="/">IB-Fashion Network</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/admin">Admin Login</a>
+                </div>
             </div>
-        </div>
-        <div>
-            <% if( error && error.length > 0){%>
-            <div class="alert alert-danger" role="alert" style="background: red; height: 50px;">
-                <%= error %>
+            <div>
+                <% if( error && error.length > 0){%>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+                <% }%>
+                <%if( success && success.length > 0){%>
+                <div class="alert alert s-success" role="alert">
+                    <%= success %>
+                </div>
+                <% }%>
             </div>
-            <% }%>
-            <%if( success && success.length > 0){%>
-            <div class="alert alert s-success" role="alert">
-                <%= success %>
-            </div>
-            <% }%>
-        </div>
-
-    </div>

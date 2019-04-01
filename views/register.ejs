@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<div class="container">
+<div>
     <div class="form-wrapper">
         <h1 class="text-center">New Application</h1>
         <form action="/register" method="POST" name="myForm" onsubmit="return validateForm()">
@@ -55,11 +55,11 @@
                     <span class="field" id="field7" class="span-2"></span>
                     <hr class="form-divider">
                 </div>
-                <div class="span-2 text-center">
+                <div class="span-2  text-center">
                     <label for="amount">Amount to Pay</label>
-                    <div class="naira-control">
-                        <span>&#8358;</span><input type="text"  name="amount" placeholder="Amount" value="2000"
-                            readonly>
+                    <div class="naira-control text-center">
+                        <h1>&#8358;2000</h1>
+                        <input type="text"  name="amount" placeholder="Amount" value="2000" readonly>
                     </div>
                 </div>
             </div>
