@@ -16,7 +16,7 @@ const { initializePayment, verifyPayment } = require('./config/paystack')(reques
 
 //CONECTION TO DB
 var url = process.env.DATABASE_URL || "mongodb://localhost:27017/fashionApp";
-mongoose.connect("mongodb://localhost:27017/fashionApp", { useNewUrlParser: true });
+mongoose.connect(url, { useNewUrlParser: true });
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
