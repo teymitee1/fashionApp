@@ -1,5 +1,6 @@
 .status-wrapper {
     height: 100vh;
+    padding-top: 25vh;
 }
 
 .error {
@@ -10,14 +11,12 @@
     background-color: green;
 }
 
- .error, .success {
+ .error, .success, .page-not-found {
 	text-align: center;
 	color: white;
     width: 60%;
     margin: auto;
-    top: 20vh;
-    position: relative;
-    padding: 100px 10px;
+    padding: 80px 10px;
     border-radius: 10px;
 }
 
@@ -41,4 +40,37 @@
   width: fit-content;
   box-shadow: 0 -1px 8px 0 rgb(162, 141, 141);
   margin-top: 20px;
+}
+
+.page-not-found {
+    background-color:red;
+}
+
+
+.page-not-found h1 {
+    color: white;
+    font-size: 8rem;
+    margin: 0;
+    padding: 0;
+}
+
+
+.alert {
+   position: relative;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    top: 10vh;
+    padding: 15px 0;
+    z-index: 10;
+    border-radius: 8px;
+    color: white;
+}
+
+.alert-danger {
+    background: rgb(240, 60, 60);
+}
+
+.alert-success {
+    background: rgb(47, 175, 47);
 }

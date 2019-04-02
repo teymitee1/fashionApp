@@ -16,7 +16,7 @@ const { initializePayment, verifyPayment } = require('./config/paystack')(reques
 
 //CONECTION TO DB
 var url = process.env.DATABASE_URL || "mongodb://localhost:27017/fashionApp";
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/fashionApp", { useNewUrlParser: true });
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -194,6 +194,26 @@ app.get('/success/:id', (req, res)=>{
     })
 })
 
+app.get("/admin", (req, res)=>{
+    res.render("admin-login")
+})
+
+app.post("/admin", (req, res)=>{
+    if(req.body.username != process.env.ADMIN_USERNAME && req.body.password != process.env.ADMIN_PASSWORD){
+        req.flash("Sorry you're not an admin")
+        res.redirect("back")
+    }else{
+        User.find({}, (err, foundUsers)=>{
+            if(err || !foundUsers){
+                console.log(err)
+                req.flash("An error occured while fetching users")
+                res.redirect("/")
+            }else{
+                res.render("admin-page", {users: foundUsers})
+            }
+        })
+    }
+})
 
 app.get("*", (req, res) => {
     res.render("404")

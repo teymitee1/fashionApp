@@ -1,0 +1,8 @@
+<% include partials/header %>
+
+<%users.forEach((user)=>{%>
+    <p><%=user.firstname%></p>
+    <p><%=user.payment_status%></p>
+<%})%>
+
+<% include partials/footer %>
