@@ -1,15 +1,15 @@
 
 .form-wrapper {
     max-width: 450px;
-    height: max-content;
-    padding: 10vh 0;
+    padding: 4rem 0;
     margin: 0 auto;
+    padding-bottom: 5rem;
 }
 
-div input[type=text], input[type=number], input[type=email] {
+div input[type=text], input[type=number], input[type=email], input[type=password] {
     border: none;
     border-bottom: 1px solid #E7434C;
-    height: 30px;
+    height: 2rem;
     width: 100%;
 }
 
@@ -39,7 +39,7 @@ form input[type=submit]:hover {
 form {
     text-align: center;
     box-shadow: 0 0 2px 0 #E7434C;
-    padding: 40px 20px;
+    padding: 2rem;
     border-radius: 10px;
 }
 
@@ -50,7 +50,7 @@ input, label, select, h1 {
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 15px;
     padding: 0;
     text-align: left;
     margin: 0;
@@ -93,7 +93,7 @@ select:focus {
 }
 
 label[for=amount]{
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: 700;
 }
 
@@ -114,12 +114,13 @@ label[for=gender]{
 
 .form-divider {
     border: 1px solid black;
-    margin: 0;
-    margin: auto;
+    opacity: 0.08;
+    margin: 0 auto;
+
 }
 
 .space {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     display: block;
 }
 
@@ -128,13 +129,12 @@ label[for=gender]{
 }
 
 div.form-grid.checkbox-control {
-    font-size: small !important;
+    font-size: small;
 }
 
 .naira-control h1 {
-    font-size: xx-large;
+    font-size: x-large;
     margin: 0;
-    padding-top: 10px;
 }
 
 .naira-control input {
