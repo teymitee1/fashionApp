@@ -1,0 +1,48 @@
+.table-wrapper {
+    padding: 40px 0;
+    width: 90%;
+    margin: 0 auto;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-wrapper th {
+    text-align: left;
+    background: black;
+    color: white;
+}
+
+.table-wrapper th, td {
+   padding: 10px;
+   flex-wrap: wrap;
+}
+
+.table-wrapper table tr:nth-child(2n) {
+    background: rgb(212, 203, 203);
+ }
+
+ .admin-delete-btn {
+     background: rgba(255, 0, 0, 0.741);
+     padding: 5px 10px;
+     border: none;
+     text-decoration: none;
+     border-radius: 5px;
+     color: white;
+     width: -webkit-fill-available;
+     box-shadow: 0 0 2px 0 rgb(82, 78, 78);
+     text-align: center;
+     font-size: .9rem;
+ }
+
+ .admin-delete-btn:hover {
+    box-shadow: none;
+}
+
+.table-wrapper h2 {
+    color: green;
+}

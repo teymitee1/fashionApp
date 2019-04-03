@@ -1,8 +1,28 @@
 <% include partials/header %>
 
-<%users.forEach((user)=>{%>
-    <p><%=user.firstname%></p>
-    <p><%=user.payment_status%></p>
-<%})%>
+
+<div class="table-wrapper">
+        <h2 class="text-center">Registered Trainees</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Courses Registered</th>
+            <th>Email</th>
+            <th>Reference Number</th>
+            <th>Payment Status</th>
+            <th>Update</th>
+        </tr>
+        <%users.forEach((user)=>{%>
+        <tr>
+            <td><%=user.firstname%></td>
+            <td><%=user.course%></td>
+            <td><%=user.email%></td>
+            <td><%=user.reference%></td>
+            <td><%=user.payment_status%></td>
+            <td><a href="#" class="admin-delete-btn">Delete</a></td>
+        </tr>
+        <%})%>
+    </table>
+</div>
 
 <% include partials/footer %>

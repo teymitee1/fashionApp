@@ -1,7 +1,12 @@
+<% include partials/header %>
+<div class="form-wrapper">
+        <form action="/admin" method="post">
+            <h1>Admin Login</h1>
+            <input class="admin-login" type="text" name="username" id="">
+            <input class="admin-login" type="password" name="password" id="">
+            <input class="admin-login-btn" type="submit" value="Login">
+            </form>
+</div>
 
-<form action="/admin" method="post">
-<input type="text" name="username" id="">
-<input type="password" name="password" id="">
-<input type="submit" value="">
-</form>
+<% include partials/footer %>
 

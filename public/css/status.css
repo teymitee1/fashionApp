@@ -1,6 +1,5 @@
 .status-wrapper {
-    height: 100vh;
-    padding-top: 25vh;
+    padding-top: 8vh;
 }
 
 .error {
@@ -14,9 +13,9 @@
  .error, .success, .page-not-found {
 	text-align: center;
 	color: white;
-    width: 60%;
+    width: 70%;
     margin: auto;
-    padding: 80px 10px;
+    padding: 60px 15px;
     border-radius: 10px;
 }
 
@@ -43,28 +42,30 @@
 }
 
 .page-not-found {
-    background-color:red;
+    background-color:rgb(146, 79, 79);
 }
 
 
 .page-not-found h1 {
     color: white;
-    font-size: 8rem;
+    font-size: 6rem;
     margin: 0;
     padding: 0;
 }
 
 
 .alert {
-   position: relative;
+   position: absolute;
     width: 80%;
     text-align: center;
-    margin: auto;
-    top: 10vh;
-    padding: 15px 0;
+    margin:  auto;
+    top: 4vh;
+    padding: 10px 0;
     z-index: 10;
     border-radius: 8px;
     color: white;
+    left: 0;
+    right: 0;
 }
 
 .alert-danger {
@@ -73,4 +74,34 @@
 
 .alert-success {
     background: rgb(47, 175, 47);
+}
+
+
+.admin-login {
+    box-shadow: 0 0 2px 0 rgb(240, 60, 60) !important;
+    border-bottom: none !important;
+    height: 50px !important;
+    display: block;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.admin-login:focus {
+    outline: none;
+    background: transparent;
+}
+
+.admin-login + .admin-login {
+    margin-bottom: 40px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top: none !important;
+}
+
+
+.admin-login:first-of-type {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom: none;
 }
