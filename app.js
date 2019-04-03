@@ -3,6 +3,7 @@ const   express         = require('express'),
         flash           = require("connect-flash"),
         mongoose        = require("mongoose"),
         User            = require("./models/user"),
+        methodOverride  = require("method-override"),
         nodemailer      = require("nodemailer"),
         _               = require("lodash"),
         request         = require("request"),
@@ -21,6 +22,7 @@ mongoose.connect(url, { useNewUrlParser: true });
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 
@@ -200,19 +202,38 @@ app.get("/admin", (req, res)=>{
 
 app.post("/admin", (req, res)=>{
     if(req.body.username != process.env.ADMIN_USERNAME && req.body.password != process.env.ADMIN_PASSWORD){
-        req.flash("Sorry you're not an admin")
+        req.flash("error", "Sorry you're not an admin")
         res.redirect("back")
     }else{
-        User.find({}, (err, foundUsers)=>{
-            if(err || !foundUsers){
-                console.log(err)
-                req.flash("An error occured while fetching users")
-                res.redirect("/")
-            }else{
-                res.render("admin-page", {users: foundUsers})
-            }
-        })
+        res.redirect("/admin/page")
     }
+})
+
+app.get("/admin/page", (req, res)=>{
+
+    User.find({}, (err, foundUsers)=>{
+        if(err || !foundUsers){
+            console.log(err)
+            req.flash("error", "An error occured while fetching users")
+            res.redirect("/")
+        }else{
+            res.render("admin-page", {users: foundUsers})
+        }
+    })
+})
+
+app.delete("/admin/page/:id/delete", (req, res)=>{
+    User.findByIdAndRemove(req.params.id, (err, removedUser)=>{
+        if(err || !removedUser){
+            console.log(err);
+            req.flash("error", "An error occured while trying to delete user")
+            return res.redirect("back");
+        }else {
+            console.log(removedUser);
+            req.flash("success", "User Removed Successfully");
+            return res.redirect("back")
+        }
+    })
 })
 
 app.get("*", (req, res) => {
