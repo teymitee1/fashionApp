@@ -6,52 +6,52 @@
             <div class="form-grid">
                 <div>
                     <!-- <label for="">Firstname</label> -->
-                    <input type="text" name="firstname" placeholder="First Name">
-                    <span class="field" id="field1"></span>
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name">
+                    <span class="field" id="firstError"></span>
                 </div>
                 <div>
                     <!-- <label for="">Lastname</label> -->
-                    <input type="text" name="lastname"  placeholder="Last Name">
-                    <span class="field" id="field2"></span>
+                    <input type="text" name="lastname" id="lastname" placeholder="Last Name">
+                    <span class="field" id="lastError"></span>
                 </div>
                 <div>
                     <!-- <label for="">Phone Number</label> -->
-                    <input type="text" name="phone"  placeholder="Phone Number">
-                    <span class="field" id="field3"></span>
+                    <input type="text" name="phone"  id="phone" placeholder="Phone Number">
+                    <span class="field" id="phoneError"></span>
                 </div>
                 <div>
                     <!-- <label for="">Age</label> -->
-                    <input type="number"  name="age" placeholder="Age">
-                    <span class="field" id="field4"></span>
+                    <input type="number"  name="age" id="age" placeholder="Age" maxlength="3">
+                    <span class="field" id="ageError"></span>
                 </div>
                 <div class="span-2 text-center">
                     <div style="display:flex">
                     <label for="gender">Gender:</label>
                     <div class="form-grid text-center">
-                        <p>Male <input type="radio" name="gender" id="gender" value="male"></p>
-                        <p>Female <input type="radio" name="gender" id="gender" value="female"></p>
+                        <p> <label for="male">Male</label> <input type="radio" name="gender" id="gender" value="male"></p>
+                        <p><label for="male">Female</label><input type="radio" name="gender" id="gender" value="female"></p>
                     </div>
                 </div>
-                    <span class="field" id="field5"></span>
+                    <span class="field" id="genderError"></span>
                 </div>
         
                 <div class="span-2">
                     <!-- <label for="">Email</label> -->
-                    <input type="email" name="email" id=""  placeholder="Email">
-                    <span class="field" id="field6"></span>
+                    <input type="email" name="email" id="email"  placeholder="Email">
+                    <span class="field" id="emailError"></span>
                 </div>
 
                 <div class="span-2">
-                    <h2 class="course">Select Courses</h2>
+                    <h4 class="course">Select Two Courses</h4>
                     <hr class="form-divider">
                     <span class="space"></span>
                     <div class="form-grid checkbox-control">
-                        <div><input type="checkbox" name="course[]" value="Photography"> Photography</div>
-                        <div><input type="checkbox" name="course[]" value="Fashing Design & Styling"> Fashing Design|Styling</div>
-                        <div><input type="checkbox" name="course[]" value="Modelling"> Modelling</div>
-                        <div><input type="checkbox" name="course[]" value="Make Up"> Make Up </div>
+                        <div><input type="checkbox" name="course[]" id="course" value="Photography"> Photography</div>
+                        <div><input type="checkbox" name="course[]" id="course" value="Fashing Design & Styling"> Fashing Design|Styling</div>
+                        <div><input type="checkbox" name="course[]" id="course" value="Modelling"> Modelling</div>
+                        <div><input type="checkbox" name="course[]" id="course" value="Make Up"> Make Up </div>
                     </div>
-                    <span class="field" id="field7" class="span-2"></span>
+                    <span class="field" id="courseError" class="span-2"></span>
                     <hr class="form-divider">
                 </div>
                 <div class="span-2  text-center">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" value="Register">
+            <input type="submit" value="Register" class="btn-register text-center">
         </form>
     </div>
 

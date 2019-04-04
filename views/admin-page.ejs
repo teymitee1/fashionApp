@@ -1,7 +1,7 @@
 <% include partials/header %>
 
 
-<div class="table-wrapper">
+<div class="table-wrapper" id="userInfo">
         <h2 class="text-center">Registered Trainees</h2>
     <table>
         <tr>
@@ -10,7 +10,7 @@
             <th>Email</th>
             <th>Reference Number</th>
             <th>Payment Status</th>
-            <th>Update</th>
+            <th>Action</th>
         </tr>
         <%users.forEach((user)=>{%>
         <tr>
@@ -24,5 +24,5 @@
         <%})%>
     </table>
 </div>
-
+<button id="print-btn">Print</button>
 <% include partials/footer %>
