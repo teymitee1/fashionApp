@@ -71,6 +71,7 @@ var user = {
     payment_status: "",
     reference: "",
     email: "",
+    occupation: "",
     course: ""
 }
 
@@ -98,6 +99,7 @@ app.post("/register", (req, res)=>{
             user.phone = req.body.phone;
             user.email = req.body.email;
             user.course = req.body.course;
+            user.occupation = req.body.occupation;
             const form = {
                 fullName: user.firstname + " " + user.lastname,
                 amount: Number(req.body.amount),
