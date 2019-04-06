@@ -13,8 +13,7 @@ printBtn.addEventListener('click', () => {
 
 var delBtn = document.getElementById("del");
  delBtn.addEventListener("click", function(e){
-     e.preventDefault()
-     var userName = delBtn.getAttribute("name");
+    var userName = delBtn.getAttribute("name");
     var con = confirm("Are You Sure You Want To Delete The User: "+ userName+  "?\nThis Action Can not be reversed");
     if(con){
         alert("User Deleted");
