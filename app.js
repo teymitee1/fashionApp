@@ -72,6 +72,7 @@ var user = {
     reference: "",
     email: "",
     occupation: "",
+    facilitator: "",
     course: ""
 }
 
@@ -100,6 +101,7 @@ app.post("/register", (req, res)=>{
             user.email = req.body.email;
             user.course = req.body.course;
             user.occupation = req.body.occupation;
+            user.facilitator = req.body.facilitator;
             const form = {
                 fullName: user.firstname + " " + user.lastname,
                 amount: Number(req.body.amount),
