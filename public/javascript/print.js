@@ -9,3 +9,15 @@ printBtn.addEventListener('click', () => {
     WinPrint.print();
     WinPrint.close();
 })
+
+
+var delBtn = document.getElementById("del");
+ delBtn.addEventListener("click", function(e){
+    var userName = delBtn.getAttribute("name");
+    var con = confirm("Are You Sure You Want To Delete The User: "+ userName+  "?\nThis Action Can not be reversed");
+    if(con){
+        alert("User Deleted");
+    }else{
+        e.preventDefault()
+    }
+ })

@@ -1,26 +1,28 @@
-const express = require('express'),
-    bodyParser = require("body-parser")
-flash = require("connect-flash"),
-    mongoose = require("mongoose"),
-    User = require("./models/user"),
-    nodemailer = require("nodemailer"),
-    _ = require("lodash"),
-    request = require("request"),
-    path = require("path"),
-    app = express();
+const   express         = require('express'),
+        bodyParser      = require("body-parser")
+        flash           = require("connect-flash"),
+        mongoose        = require("mongoose"),
+        User            = require("./models/user"),
+        methodOverride  = require("method-override"),
+        nodemailer      = require("nodemailer"),
+        _               = require("lodash"),
+        request         = require("request"),
+        path            = require("path"),
+        app             = express();
 
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const { initializePayment, verifyPayment } = require('./config/paystack')(request);
 
 //CONECTION TO DB
 var url = process.env.DATABASE_URL || "mongodb://localhost:27017/fashionApp";
-mongoose.connect("mongodb://localhost:27017/fashionApp", { useNewUrlParser: true });
+mongoose.connect(url, { useNewUrlParser: true });
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 
@@ -204,21 +206,40 @@ app.get("/admin", (req, res) => {
     res.render("admin-login")
 })
 
-app.post("/admin", (req, res) => {
-    if (req.body.username != process.env.ADMIN_USERNAME && req.body.password != process.env.ADMIN_PASSWORD) {
-        req.flash("Sorry you're not an admin")
+app.post("/admin", (req, res)=>{
+    if(req.body.username != process.env.ADMIN_USERNAME && req.body.password != process.env.ADMIN_PASSWORD){
+        req.flash("error", "Sorry you're not an admin")
         res.redirect("back")
-    } else {
-        User.find({}, (err, foundUsers) => {
-            if (err || !foundUsers) {
-                console.log(err)
-                req.flash("An error occured while fetching users")
-                res.redirect("/")
-            } else {
-                res.render("admin-page", { users: foundUsers })
-            }
-        })
+    }else{
+        res.redirect("/admin/page")
     }
+})
+
+app.get("/admin/page", (req, res)=>{
+
+    User.find({}, (err, foundUsers)=>{
+        if(err || !foundUsers){
+            console.log(err)
+            req.flash("error", "An error occured while fetching users")
+            res.redirect("/")
+        }else{
+            res.render("admin-page", {users: foundUsers})
+        }
+    })
+})
+
+app.delete("/admin/page/:id/delete", (req, res)=>{
+    User.findByIdAndRemove(req.params.id, (err, removedUser)=>{
+        if(err || !removedUser){
+            console.log(err);
+            req.flash("error", "An error occured while trying to delete user")
+            return res.redirect("back");
+        }else {
+            console.log(removedUser);
+            req.flash("success", "User Removed Successfully");
+            return res.redirect("back")
+        }
+    })
 })
 
 app.get("*", (req, res) => {
