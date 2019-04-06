@@ -30,7 +30,7 @@ submit.addEventListener('click', function (e) {
 		phone.addEventListener('input', function () {
 			phoneError.innerHTML = "";
 		})
-	} else if (phoneVal.trim().length != 11) {
+	} else if (phoneVal.length != 11) {
 		phoneError.innerHTML = "*** Phone must be 11 numbers long";
 		e.preventDefault();
 	}
