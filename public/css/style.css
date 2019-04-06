@@ -7,6 +7,10 @@
   font-family: sans-serif;
 }
 
+p {
+  font-size: 13px;
+}
+
 body, html {
   height: 100%;
   padding: 0;
@@ -33,32 +37,38 @@ body, html {
 .nav {
   width: 100%;
   box-shadow: 0 0 2px 0.5px rgba(0, 0, 0, 0.8);
-  padding: 20px 5px;
   background: rgb(175, 23, 30);
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   top: 0;
   margin: 0;
-  display: flex;
+  padding: 0 30px;
+
 }
 
+.brand-logo-wrapper {
+  width: 100px;
+  padding: 0;
+  margin:0;
+}
 .brand-logo {
-  display: block;
   text-decoration: none;
-  padding: 0 1rem;
-  width: fit-content;
-  margin-left: 15px;
+  width: 100%;
   color: white;
+}
+.brand-logo-wrapper, .nav-item {
+  padding: 10px 0 10px;
+  display: inline-block;
+}
+
+.nav-item {
+  float: right;
+  padding: 20px 0;
 }
 
 .nav-item a {
-  position: absolute;
-  text-align: left;
-  display: block;
   text-decoration: none;
-  padding: 0 20px;
   color: white;
-  right: 0;
   font-size: 13px;
 }
 

@@ -8,16 +8,22 @@
 
 div input[type=text], input[type=number], input[type=email], input[type=password] {
     border: none;
-    border-bottom: 1px solid #E7434C;
+    border-bottom: 1.5px solid white;
     height: 2rem;
     width: 100%;
+    background: transparent;
+    color: white;
+}
+
+.form-grid div input::placeholder {
+   color: rgba(255, 255, 255, 0.748);
 }
 
 .form-wrapper .form-grid div input[type=text]:focus, input[type=number]:focus, input[type=email]:focus{
     outline: none;
 }
 
-form input[type=submit] {
+.btn-register {
     width: 50%;
     margin: 0 auto;
     background:  #E7434C;
@@ -31,20 +37,24 @@ form input[type=submit] {
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 6px;
+    display: block;
 }
 
 form input[type=submit]:hover {
     box-shadow: none;
 }
 form {
-    text-align: center;
     box-shadow: 0 0 2px 0 #E7434C;
     padding: 2rem;
     border-radius: 10px;
+    background: url("/images/bg.jpg") no-repeat center center;
+    background-blend-mode: difference;
+    background-size: cover;
+
 }
 
-input, label, select, h1 {
-    color: black;
+input, label {
+    color: white;
 }
 
 .form-grid {
@@ -78,8 +88,9 @@ form div {
     height: 5vh;
 }
 
-h1.text-center {
+.form-wrapper h1 {
     font-size: 30px;
+    margin-top: 0;
 }
 
 select {
@@ -95,6 +106,7 @@ select:focus {
 label[for=amount]{
     font-size: x-large;
     font-weight: 700;
+    color: black;
 }
 
 label[for=gender]{
@@ -143,17 +155,19 @@ div.form-grid.checkbox-control {
     display: none;
 }
 
+.field {
+    color: red;
+    display: block;
+    padding-top: 5px;
+    font-size: 13px;
+}
+#genderError {
+    margin-top: -15px;
+}
+
 @media only screen and (max-width: 600px){
     form {
         max-width: 400px;
         margin: 0 auto;
     }
-}
-.field {
-    color: red;
-    display: block;
-    padding-top: 5px;
-}
-#field5{
-    margin-top: -15px;
 }
