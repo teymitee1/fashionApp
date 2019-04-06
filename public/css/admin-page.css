@@ -1,9 +1,14 @@
+.admin-page-position {
+    padding: 0 5vw;
+}
+
+.admin-page-position h2 {
+    color: rgb(7, 11, 53);
+}
+
 .table-wrapper {
-    padding: 40px 0;
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
     overflow-x: scroll;
-    scroll-behavior: smooth;
 }
 
 .table-wrapper table {
@@ -43,29 +48,25 @@
     box-shadow: none;
 }
 
-.table-wrapper h2 {
-    color: green;
+#login-btn, #print-btn {
+    text-align: center;
+    margin: auto;
+    display: block;
 }
 
-.admin-login {
-    box-shadow: 0 0 2.5px 0 rgb(248, 248, 248) !important;
-    border: 1px solid white !important;
-    height: 40px !important;
-    display: block;
-    border-radius: 8px;
-    padding: 1rem 2rem;
+#print-btn {
+    margin-top: 2rem;
 }
 
 .admin h2 {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.659);
+    border-bottom: 2px solid rgba(136, 130, 130, 0.469);
     width: max-content;
     padding-bottom: 5px;
-    color: white;
+
 }
 
 .admin label {
-    padding-bottom: 10px;
-    padding-top: 20px;
+    padding-bottom: .5rem;
     display: block;
     font-weight: bold;
 }
@@ -74,44 +75,24 @@
     color: red;
     font-size: 12px;
     display: block;
-    padding-top: 8px;
+    padding-bottom: 1.5rem;
+    padding-top: .5rem;
 }
 
-.admin-login:focus {
-    outline: none;
-    background: transparent;
+.admin-login {
+    height: 2.5rem !important;
+    text-align: center;
+    margin-bottom: 0.2rem !important;
 }
 
-#login {
-    width: 50%;
-    background:  #E7434C;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
+.login-wrapper {
+    max-width: 25rem;
+    padding: 10px 20px 30px;
     border: none;
     box-shadow: 0 1px 3px 0 rgba(75, 67, 67, 0.4);
-    font-size: 1em;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 6px;
     display: block;
-    margin: 30px auto 0;
+    margin: 5rem auto;
 }
 
-#print-btn {
-    width: max-content;
-    background:  green;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 1px 3px 0 rgba(75, 67, 67, 0.4);
-    font-size: 1em;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    border-radius: 6px;
-    display: block;
-    margin: 30px auto 0;
-}
