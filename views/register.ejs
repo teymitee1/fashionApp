@@ -1,69 +1,115 @@
 <% include partials/header %>
-
-    <div class="form-wrapper">
-        <h1 class="text-center">New Application</h1>
-        <form action="/register" method="POST" name="myForm" onsubmit="return validateForm()">
-            <div class="form-grid">
-                <div>
-                    <!-- <label for="">Firstname</label> -->
-                    <input type="text" name="firstname" id="firstname" placeholder="First Name">
-                    <span class="field" id="firstError"></span>
-                </div>
-                <div>
-                    <!-- <label for="">Lastname</label> -->
-                    <input type="text" name="lastname" id="lastname" placeholder="Last Name">
-                    <span class="field" id="lastError"></span>
-                </div>
-                <div>
-                    <!-- <label for="">Phone Number</label> -->
-                    <input type="text" name="phone"  id="phone" placeholder="Phone Number">
-                    <span class="field" id="phoneError"></span>
-                </div>
-                <div>
-                    <!-- <label for="">Age</label> -->
-                    <input type="number"  name="age" id="age" placeholder="Age" maxlength="3">
-                    <span class="field" id="ageError"></span>
-                </div>
-                <div class="span-2 text-center">
-                    <div style="display:flex">
-                    <label for="gender">Gender:</label>
-                    <div class="form-grid text-center">
-                        <p> <label for="male">Male</label> <input type="radio" name="gender" id="gender" value="male"></p>
-                        <p><label for="male">Female</label><input type="radio" name="gender" id="gender" value="female"></p>
-                    </div>
-                </div>
-                    <span class="field" id="genderError"></span>
-                </div>
-        
-                <div class="span-2">
-                    <!-- <label for="">Email</label> -->
-                    <input type="email" name="email" id="email"  placeholder="Email">
-                    <span class="field" id="emailError"></span>
-                </div>
-
-                <div class="span-2">
-                    <h4 class="course">Select Two Courses</h4>
-                    <hr class="form-divider">
-                    <span class="space"></span>
-                    <div class="form-grid checkbox-control">
-                        <div><input type="checkbox" name="course[]" id="course" value="Photography"> Photography</div>
-                        <div><input type="checkbox" name="course[]" id="course" value="Fashing Design & Styling"> Fashing Design|Styling</div>
-                        <div><input type="checkbox" name="course[]" id="course" value="Modelling"> Modelling</div>
-                        <div><input type="checkbox" name="course[]" id="course" value="Make Up"> Make Up </div>
-                    </div>
-                    <span class="field" id="courseError" class="span-2"></span>
-                    <hr class="form-divider">
-                </div>
-                <div class="span-2  text-center">
-                    <label for="amount">Amount to Pay</label>
-                    <div class="naira-control text-center">
-                        <h1>&#8358;2000</h1>
-                        <input type="text"  name="amount" placeholder="Amount" value="2000" readonly>
-                    </div>
-                </div>
+<div class="form-wrapper">
+<div class="sign-up cols-2">
+    <div class="cover"></div>
+    <form action="/register" method="POST" id="sign-up">
+        <div class="form-wrap cols-2">
+            <div class="span-2">
+                <h2>Welcome to Fashion Network</h2>
+                <h4>Let's get you set up!</h4>
             </div>
-            <input type="submit" value="Register" class="btn-register text-center">
-        </form>
-    </div>
+            <div>
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" placeholder="John" id="firstname">
+                <span class="fieldErr" id="firstError"></span>
+            </div>
 
-    <% include partials/footer %>
+            <div>
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" placeholder="Doe" id="lastname">
+                <span  class="fieldErr" id="lastError"></span>
+            </div>
+
+            <div>
+                <label for="phone">Phone</label>
+                <input type="text" name="phone" placeholder="070-XXX-XXX-XXX" id="phone">
+                <span class="fieldErr" id="phoneError"></span>
+            </div>
+
+            <div>
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="somebody@fashionnetwork.com" id="email">
+                <span class="fieldErr" id="emailError"></span>
+            </div>
+
+            <div>
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob" id="dob">
+                <span class="fieldErr" id="dobError"></span>
+            </div>
+
+            <div>
+                <label for="gender">Gender</label>
+                <div class="gender-wrap">
+                    <div class="gender-control">Male <input type="radio" name="gender" value="male" id="gender"></div>
+                    <div class="gender-control">Female <input type="radio" name="gender" value="female" id="gender"></div>
+                </div>
+                <span class="fieldErr" id="genderError"></span>
+            </div>
+
+            <div>
+                <label for="occupation">Occupation</label>
+                <select name="occupation" form="sign-up" id="occupation">
+                    <option value="select" selected>Select</option>
+                    <option value="graduate">Graduate</option>
+                    <option value="Fashion Entrepreneur">Fashion Entrepreneur</option>
+                    <option value="Employed">Employed</option>
+                </select>
+                <span class="fieldErr" id="occupationError"></span>
+            </div>
+
+            <div>
+                <label for="facilitator">Choose Facilitator</label>
+                <select name="facilitator" form="sign-up" id="facilitator">
+                    <option selected value="select">Select</option>
+                    <option value="facilitator 1">Facilitator 1</option>
+                    <option value="facilitator 2">Facilitator 2</option>
+                    <option value="facilitator 3">Facilitator 3</option>
+                </select>
+                <span class="fieldErr" id="facilitatorError"></span>
+            </div>
+            <div class="span-2">
+                <h4 class="text-center top-margin-0">Course Choice</h4>
+            </div>
+            <div>
+                <label for="firstchoice">First course</label>
+                <select name="firstchoice" form="sign-up" id="firstchoice">
+                    <option selected value="select">Select</option>
+                    <option value="Fashion Styling">Fashion Styling</option>
+                    <option value="Modelling">Modelling</option>
+                    <option value="Hair Styling">Hair Stylling</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Others">Others</option>
+                </select>
+                <span class="fieldErr" id="firstchoiceError"></span>
+            </div>
+
+            <div>
+                <label for="secondchoice">Second course</label>
+                <select name="secondchoice" form="sign-up" id="secondchoice">
+                    <option selected value="select">Select</option>
+                    <option value="Fashion Styling">Fashion Styling</option>
+                    <option value="Modelling">Modelling</option>
+                    <option value="Hair Styling">Hair Stylling</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Others">Others</option>
+                </select>
+                <span class="fieldErr" id="secondchoiceError"></span>
+            </div>
+
+            <div class="span-2">
+                <label class="text-center amount-header" for="amount">
+                    <h2>Amount to Pay</h2>
+                </label>
+                <input class="text-center amount" type="text" name="amount" value="2000" readonly>
+            </div>
+
+            <div class="span-2">
+                <button class="btn btn-blue" id="signUp">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<% include partials/footer %>

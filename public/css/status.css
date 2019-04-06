@@ -55,22 +55,24 @@
 
 
 .alert {
-    position: relative;
+    position: absolute;
     width: 80%;
     text-align: center;
-    margin: auto;
-    top: 4vh;
+    margin: 0 auto;
+    top: 4rem;
     padding: 10px 0;
-    z-index: 2;
     border-radius: 8px;
     color: white;
-   
+    left: 0;
+    right: 0;
+    z-index: 1;
+    box-shadow: 0 0 2px 0.4px lightgray;
 }
 
 .alert-danger {
-    background: rgb(240, 60, 60);
+    background: rgba(255, 88, 88, 0.748);
 }
 
 .alert-success {
-    background: rgb(47, 175, 47);
+    background: rgba(67, 204, 67, 0.782);
 }
