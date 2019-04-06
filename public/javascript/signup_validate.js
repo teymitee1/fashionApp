@@ -20,11 +20,12 @@ submit.addEventListener('click', (e) => {
         let phoneError = document.getElementById("phoneError");
         phoneError.innerHTML = "*** Phone Number is Required";
         e.preventDefault();
-    } else if (phoneVal.trim() < 11 || phoneVal.trim() > 11) {
-        phoneError = document.getElementById("phoneError");
-        phoneError.innerHTML = "*** Phone Number must be 11 characters long"
-        e.preventDefault();
-    }
+    } 
+    // else if (phoneVal.trim() < 11 || phoneVal.trim() > 11) {
+        // phoneError = document.getElementById("phoneError");
+        // phoneError.innerHTML = "*** Phone Number must be 11 characters long"
+        // e.preventDefault();
+    // }
     let age = document.getElementById("age"),
         ageVal = age.value;
 
