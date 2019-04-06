@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let submit = document.getElementById('signUp');
 submit.addEventListener('click', function (e) {
 	let firstname = document.getElementById("firstname"),
@@ -21,38 +20,6 @@ submit.addEventListener('click', function (e) {
 			lastError.innerHTML = "";
 		})
 	}
-=======
-let submit = document.querySelector('input[type=submit]');
-submit.addEventListener('click', (e) => {
-    let firstname = document.getElementById("firstname"),
-        firstVal = firstname.value;
-    if (firstVal.trim() == '') {
-        let firstError = document.getElementById("firstError");
-        firstError.innerHTML = "*** Firstname is required";
-        e.preventDefault();
-    }
-    let lastname = document.getElementById("lastname"),
-        lastVal = lastname.value;
-    if (lastVal.trim() == '') {
-        let lastError = document.getElementById("lastError");
-        lastError.innerHTML = "*** Lastname is required"
-        e.preventDefault();
-    }
-    let phone = document.getElementById("phone"),
-        phoneVal = phone.value;
-    if (phoneVal.trim() == '') {
-        let phoneError = document.getElementById("phoneError");
-        phoneError.innerHTML = "*** Phone Number is Required";
-        e.preventDefault();
-    } 
-    // else if (phoneVal.trim() < 11 || phoneVal.trim() > 11) {
-        // phoneError = document.getElementById("phoneError");
-        // phoneError.innerHTML = "*** Phone Number must be 11 characters long"
-        // e.preventDefault();
-    // }
-    let age = document.getElementById("age"),
-        ageVal = age.value;
->>>>>>> e2c83a530e67ad13708564f475383a72a5e2f694
 
 	let phone = document.getElementById("phone"),
 		phoneVal = phone.value;
