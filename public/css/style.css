@@ -74,10 +74,9 @@ body, html {
 
 header {
   height: 100vh;
-  background: url(../images/bg.jpg);
-  background-size: cover;
-  position: relative;
-  top: 0;
+  /* background: url(../images/bg.jpg); */
+  /* background-size: cover; */
+  position: inherit;
 }
 
 .landing-header {

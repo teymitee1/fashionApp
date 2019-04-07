@@ -1,5 +1,6 @@
 .status-wrapper {
     padding-top: 8vh;
+    padding-bottom: 8vh;
 }
 
 .error {
@@ -55,18 +56,15 @@
 
 
 .alert {
-    position: absolute;
     width: 80%;
     text-align: center;
-    margin: 0 auto;
-    top: 4rem;
+    margin: 1rem auto 0;
     padding: 10px 0;
     border-radius: 8px;
     color: white;
-    left: 0;
-    right: 0;
-    z-index: 1;
     box-shadow: 0 0 2px 0.4px lightgray;
+    z-index: 5;
+    position: relative;
 }
 
 .alert-danger {

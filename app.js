@@ -66,7 +66,7 @@ var user = {
     lastname: "",
     phone: "",
     email: "",
-    dob: "",
+    age: "",
     gender: "",
     occupation: "",
     facilitator: "",
@@ -96,7 +96,7 @@ app.post("/register", (req, res) => {
             user.firstname = req.body.firstname;
             user.lastname = req.body.lastname;
             user.gender = req.body.gender;
-            user.dob = req.body.dob;
+            user.age = req.body.dob;
             user.phone = req.body.phone;
             user.email = req.body.email;
             user.occupation = req.body.occupation;
