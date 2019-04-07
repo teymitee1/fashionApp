@@ -18,7 +18,7 @@ var UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    dob:  {
+    age:  {
         type: String,
         required: true,
     },
@@ -34,11 +34,7 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    firstcourse:  {
-        type: String,
-        required: true,
-    },
-    secondcourse:  {
+    course:  {
         type: String,
         required: true,
     },
