@@ -1,30 +1,31 @@
 <% include partials/header %>
 <div class="admin-page-position" id="userInfo">
-        <h2 class="text-center">Registered Trainees</h2>
-<div class="table-wrapper" >
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Courses Registered</th>
-            <th>Email</th>
-            <th>Reference Number</th>
-            <th>Payment Status</th>
-            <th>Action</th>
-        </tr>
-        <%users.forEach((user)=>{%>
-        <tr>
-            <td><%=user.firstname%></td>
-            <td><%=user.course%></td>
-            <td><%=user.email%></td>
-            <td><%=user.reference%></td>
-            <td><%=user.payment_status%></td>
-            <form action="/admin/page/<%= user._id%>/delete?_method=DELETE" method="post">
-                <td><button type="submit" id="del" name="<%= user.firstname%> <%=  user.lastname %>" class="admin-delete-btn">Delete</button></td>
-            </form>
-        </tr>
-        <%})%>
-    </table>
-</div>
+    <h2 class="text-center">Registered Trainees</h2>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Courses Registered</th>
+                <th>Email</th>
+                <th>Reference Number</th>
+                <th>Payment Status</th>
+                <th>Action</th>
+            </tr>
+            <%users.forEach((user)=>{%>
+            <tr>
+                <td><%=user.firstname%></td>
+                <td><%=user.course%></td>
+                <td><%=user.email%></td>
+                <td><%=user.reference%></td>
+                <td><%=user.payment_status%></td>
+                <form action="/admin/page/<%= user._id%>/delete?_method=DELETE" method="post">
+                    <td><button type="submit" id="del" name="<%= user.firstname%> <%=  user.lastname %>"
+                            class="admin-delete-btn">Delete</button></td>
+                </form>
+            </tr>
+            <%})%>
+        </table>
+    </div>
 </div>
 <button id="print-btn" class="btn btn-blue">Print</button>
-<% include partials/footer %>
+<% include partials/footer2 %>

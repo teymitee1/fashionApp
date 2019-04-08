@@ -19,26 +19,25 @@
 </head>
 
 <body>
+
     <div class="container">
-        <div class="content-wrap">
-            <div class="content">
-                <div class="nav">
-                    <div class="brand-logo-wrapper">
-                        <a href="/"><img class="brand-logo" src="/images/logo.jpg" alt=""></a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="/admin">Admin Login</a>
-                    </div>
+        <div class="nav">
+            <div class="nav-item" style="width: 120px">
+                <a class="logo" href="/"><img class="img-responsive" src="/images/logo.jpg" alt=""></a>
+            </div>
+            <div class="nav-item pull-right">
+                <a href="/admin">Admin Login</a>
+            </div>
+        </div>
+
+        <div class="page-body">
+                <%if( error && error.length > 0){%>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
                 </div>
-                <div>
-                    <div class="alert alert-danger" role="alert">
-                        gahdschakvhbakvbajbvajdvba
-                        gahdschakvhbakvbajbvajdvba
-                        gahdschakvhbakvbajbvajdvba
-                    </div>
-                    <%if( success && success.length > 0){%>
-                    <div class="alert alert-success" role="alert">
-                        <%= success %>
-                    </div>
-                    <% }%>
+                <% }%>
+                <%if( success && success.length > 0){%>
+                <div class="alert alert-success" role="alert">
+                    <%= success %>
                 </div>
+                <% }%>

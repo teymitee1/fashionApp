@@ -7,7 +7,9 @@ padding: 0;
 height: 100%;
 }
 .form-wrapper {
-	margin: 0 auto;
+	margin: 1rem auto 2rem;
+	width: 90%;
+	box-shadow: 0 0 2px 00.5px rgba(182, 173, 173, 0.789);
 }
 
 label {
@@ -112,10 +114,6 @@ form {
 	background-size: cover;
 	width: 100%;
 	height: 100%;
-	margin-bottom: 0;
-	position: relative;
-	top: -2rem;
-	z-index: -1;
 
 }
 

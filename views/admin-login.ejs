@@ -1,16 +1,15 @@
 <% include partials/header %>
 <div class="login-wrapper">
-        <form action="/admin" method="post" class="admin">
-            <h2 >Admin Login</h2>
-            <label for="username">Username</label>
-            <input class="admin-login" type="text" name="username" id="username">
-            <span id="userError"></span>
-            <label for="password">Password</label>
-            <input class="admin-login" type="password" name="password" id="password">
-            <span id="passError"></span>
-            <button class="btn btn-blue" id="login-btn">Login</button>
-            </form>
+    <form action="/admin" method="post" class="admin">
+        <h2>Admin Login</h2>
+        <label for="username">Username</label>
+        <input class="admin-login" type="text" name="username" id="username">
+        <span id="userError"></span>
+        <label for="password">Password</label>
+        <input class="admin-login" type="password" name="password" id="password">
+        <span id="passError"></span>
+        <button class="btn btn-blue" id="login-btn">Login</button>
+    </form>
 </div>
 
 <% include partials/footer %>
-
