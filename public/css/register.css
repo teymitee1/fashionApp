@@ -9,7 +9,9 @@ height: 100%;
 .form-wrapper {
 	margin: 1rem auto 2rem;
 	width: 90%;
-	box-shadow: 0 0 2px 00.5px rgba(182, 173, 173, 0.789);
+	box-shadow: 0 0 2px 0.2px rgba(182, 173, 173, 0.789);
+	border-radius: 8px;
+	overflow: hidden;
 }
 
 label {
