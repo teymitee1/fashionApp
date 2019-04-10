@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>IB Fashion Network</title>
+    <title>Fashion Network</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css">
     <link rel="stylesheet" href="/css/register.css">
@@ -32,6 +32,7 @@
         </div>
 
         <div class="page-body">
+            <div id="flash-messages">
                 <%if( error && error.length > 0){%>
                 <div class="alert alert-danger" role="alert">
                     <%= error %>
@@ -42,3 +43,4 @@
                     <%= success %>
                 </div>
                 <% }%>
+            </div>

@@ -1,3 +1,6 @@
+window.onload = autoRemove();
+
+
 let submit = document.getElementById('signUp');
 submit.addEventListener('click', function (e) {
 	let firstname = document.getElementById("firstname"),
@@ -81,7 +84,7 @@ submit.addEventListener('click', function (e) {
 	}
 
 	let facilitator = document.getElementById("facilitator"),
-	facilitatorVal = facilitator.value;
+		facilitatorVal = facilitator.value;
 	if (facilitatorVal === 'select') {
 		let facilitatorError = document.getElementById("facilitatorError");
 		facilitatorError.innerHTML = "*** Choose a facilitator please"
@@ -92,7 +95,7 @@ submit.addEventListener('click', function (e) {
 	}
 
 	let firstcourse = document.getElementById("firstchoice"),
-	firstcourseVal = firstcourse.value;
+		firstcourseVal = firstcourse.value;
 	if (firstcourseVal === 'select') {
 		let firstchoiceError = document.getElementById("firstchoiceError");
 		firstchoiceError.innerHTML = "*** Choose a course"
@@ -103,7 +106,7 @@ submit.addEventListener('click', function (e) {
 	}
 
 	let secondcourse = document.getElementById("secondchoice"),
-	secondcourseVal = secondcourse.value;
+		secondcourseVal = secondcourse.value;
 	if (secondcourseVal === 'select') {
 		let secondchoiceError = document.getElementById("secondchoiceError");
 		secondchoiceError.innerHTML = "*** Choose a course"
@@ -112,6 +115,28 @@ submit.addEventListener('click', function (e) {
 			secondchoiceError.innerHTML = "";
 		})
 	}
-
-
+	setTimeout(clearAllErr, 10000)
 })
+
+function clearAllErr() {
+	let num = document.querySelectorAll('.fieldErr')
+	for (i = 0; i < num.length; i++) {
+		num[i].innerHTML = '';
+	}
+}
+
+
+
+function removeFlash (){
+	var flashContainerId = document.getElementById('flash-messages');
+	if(flashContainerId.style.display = "block"){
+		flashContainerId.style.display = 'none';
+	}
+ }
+
+ function autoRemove(){
+	setTimeout(function(){
+		removeFlash();
+	}, 5000);
+ };
+
