@@ -42,7 +42,7 @@ submit.addEventListener('click', function (e) {
 		emailVal = email.value;
 	if (emailVal.trim() == '') {
 		var emailError = document.getElementById("emailError");
-		emailError.innerHTML = "*** Email is Required"
+		emailError.innerHTML = "*** Email is required"
 		e.preventDefault();
 		email.addEventListener('input', () => {
 			emailError.innerHTML = "";
@@ -71,6 +71,16 @@ submit.addEventListener('click', function (e) {
 			})
 		}
 	}
+	let state = document.getElementById("state"),
+		stateVal = state.value;
+	if (stateVal === 'select') {
+		let stateError = document.getElementById("stateError");
+		stateError.innerHTML = "*** State is required"
+		e.preventDefault();
+		state.addEventListener('input', function () {
+			stateError.innerHTML = "";
+		})
+	}
 
 	let occupation = document.getElementById("occupation"),
 		occupationVal = occupation.value;
@@ -80,6 +90,17 @@ submit.addEventListener('click', function (e) {
 		e.preventDefault();
 		occupation.addEventListener('input', function () {
 			occupationError.innerHTML = "";
+		})
+	}
+
+	let business = document.getElementById("business"),
+		businessVal = business.value;
+	if (businessVal.trim() == '') {
+		let businessError = document.getElementById("businessError");
+		businessError.innerHTML = "*** Please supply your business name or your organization";
+		e.preventDefault();
+		business.addEventListener('input', function () {
+			businessError.innerHTML = "";
 		})
 	}
 
@@ -125,18 +146,16 @@ function clearAllErr() {
 	}
 }
 
-
-
-function removeFlash (){
+function removeFlash() {
 	var flashContainerId = document.getElementById('flash-messages');
-	if(flashContainerId.style.display = "block"){
+	if (flashContainerId.style.display = "block") {
 		flashContainerId.style.display = 'none';
 	}
- }
+}
 
- function autoRemove(){
-	setTimeout(function(){
+function autoRemove() {
+	setTimeout(function () {
 		removeFlash();
 	}, 5000);
- };
+};
 
