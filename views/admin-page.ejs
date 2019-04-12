@@ -5,19 +5,27 @@
         <table>
             <tr>
                 <th>Name</th>
-                <th>Courses Registered</th>
+                <th>Gender</th>
+                <th>Phone</th>
                 <th>Email</th>
-                <th>Reference Number</th>
+                <th>Occupation</th>
+                <th>Courses Registered</th>
+                <th>Facilitator</th>
                 <th>Payment Status</th>
+                <th>Reference Number</th>
                 <th>Action</th>
             </tr>
             <%users.forEach((user)=>{%>
             <tr>
-                <td><%=user.firstname%></td>
-                <td><%=user.course%></td>
+                <td><%=user.firstname + " " + user.lastname%></td>
+                <td><%=user.gender%></td>
+                <td><%=user.phone%></td>
                 <td><%=user.email%></td>
-                <td><%=user.reference%></td>
+                <td><%=user.occupation%></td>
+                <td><%=user.course%></td>
+                <td><%=user.facilitator%></td>
                 <td><%=user.payment_status%></td>
+                <td><%=user.reference%></td>
                 <form action="/admin/page/<%= user._id%>/delete?_method=DELETE" method="post">
                     <td><button type="submit" id="del" name="<%= user.firstname%> <%=  user.lastname %>"
                             class="admin-delete-btn">Delete</button></td>
