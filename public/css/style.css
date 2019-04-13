@@ -489,6 +489,7 @@ width: 80%;
 	
 	.footer-section {
 		display: block;
+		bottom: 0;
 	}
 .footer-section, .footer{
 	position: relative;
