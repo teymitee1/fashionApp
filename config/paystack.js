@@ -3,7 +3,7 @@ const paystack = (request) => {
     //replace the secret key with that from your paystack account
     const initializePayment = (form, mycallback) => {
         const options = {
-            url : `${process.env.PAYSTACK_URL}/initialize`,
+            url : 'https://api.paystack.co/transaction/initialize',
             headers : {
                 authorization: MySecretKey,
                 'content-type': 'application/json',
@@ -19,7 +19,7 @@ const paystack = (request) => {
 
     const verifyPayment = (ref, mycallback) => {
         const options = {
-            url : process.env.PAYSTACK_URL+'/verify/'+encodeURIComponent(ref),
+            url : 'https://api.paystack.co/transaction/verify/'+encodeURIComponent(ref),
             headers : {
                 authorization: MySecretKey,
                 'content-type': 'application/json',

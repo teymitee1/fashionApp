@@ -101,7 +101,7 @@ var user = {
 
 app.post("/register", (req, res)=>{
     User.findOne({"email": req.body.email}, (err, foundMail)=>{
-        if(err){
+        if(err || !foundMail){
             console.log(err)
             req.flash("error", err)
             return res.redirect("/")
@@ -135,15 +135,16 @@ app.post("/register", (req, res)=>{
             }
             form.amount *= 100;
             initializePayment(form, (error, body)=>{
-                if(error){
+                if(error || !body){
                     //handle errors
                     console.log(error);
                     req.flash("error", "An error Occured, Please Try again")
                     return res.redirect('/register')
-                    return;
                 } else {
-                    console.log(body)
+                    console.log(body, "here")
                     response = JSON.parse(body);
+                    console.log(response)
+                    console.log(body)
                     return res.redirect(response.data.authorization_url)
                 }
             });
@@ -155,7 +156,7 @@ app.post("/register", (req, res)=>{
 app.get('/paystack/callback', (req,res) => {
     const ref = req.query.reference;
     verifyPayment(ref, (error,body)=>{
-        if(error){
+        if(error || !body){
             //handle errors appropriately
             console.log(error)
             req.flash("error", error)
@@ -288,7 +289,7 @@ app.delete("/admin/page/:id/delete", (req, res)=>{
         }else {
             console.log(removedUser);
             req.flash("success", "User Removed Successfully");
-            return res.redirect("/admin/page")
+            return res.redirect("/")
         }
     })
 })
