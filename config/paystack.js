@@ -1,5 +1,5 @@
 const paystack = (request) => {
-    const MySecretKey = PAYSTACK_SECRET;
+    const MySecretKey = process.env.PAYSTACK_SECRET;
     //replace the secret key with that from your paystack account
     const initializePayment = (form, mycallback) => {
         const options = {
