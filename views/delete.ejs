@@ -1,0 +1,11 @@
+<% include partials/header %>
+<br>
+<br>
+<br>
+<%=user%>
+<form action="/admin/page/<%= user._id%>/delete?_method=DELETE" method="post">
+    <button type="submit" id="del" name="<%= user.firstname%> <%=  user.lastname %>"
+            class="admin-delete-btn">Delete</button>
+</form>
+
+<% include partials/footer2 %>
