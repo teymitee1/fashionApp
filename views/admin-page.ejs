@@ -18,10 +18,7 @@
                 <td><%=user.email%></td>
                 <td><%=user.reference%></td>
                 <td><%=user.payment_status%></td>
-                <form action="/admin/page/<%= user._id%>/delete?_method=DELETE" method="post">
-                    <td><button type="submit" id="del" name="<%= user.firstname%> <%=  user.lastname %>"
-                            class="admin-delete-btn">Delete</button></td>
-                </form>
+                <td><a href="/admin/page/<%= user._id%>/delete" class="admin-delete-btn">Delete</a></td>
             </tr>
             <%})%>
         </table>

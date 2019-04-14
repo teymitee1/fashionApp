@@ -5,12 +5,15 @@ const   express         = require('express'),
         User            = require("./models/user"),
         methodOverride  = require("method-override"),
         nodemailer      = require("nodemailer"),
+        jwt             = require("jsonwebtoken"),
+        cookieParser    = require("cookie-parser"),
         _               = require("lodash"),
         request         = require("request"),
         path            = require("path"),
         app             = express();
 
 
+// require('dotenv').config();
 
 const { initializePayment, verifyPayment } = require('./config/paystack')(request);
 
@@ -31,6 +34,7 @@ app.use(require("express-session")({
     saveUninitialized: false
 }))
 
+app.use(cookieParser());
 
 // setting local variables for all routes
 app.use(function(req, res, next){
@@ -51,6 +55,26 @@ var smtpTransport = nodemailer.createTransport({
     }
 });
 
+const withAuth = function(req, res, next) {
+  // check for token and save in a variable
+  const token =
+    req.body.token ||
+    req.query.token ||
+    req.headers['x-access-token'] ||
+    req.cookies.token;
+
+  // TODO: verify the token
+  jwt.verify(token, 'fileupload', (err, decoded) => {
+    if (err|| !decoded) {
+        console.log(err)
+            req.flash("error", "You must be logged in")
+            return res.redirect("/admin");
+        }
+    req.user = decoded;
+    req.token = token;
+    next();
+  });
+}
 app.get("/", (req, res)=>{
     res.render("landing");
 });
@@ -208,11 +232,29 @@ app.post("/admin", (req, res)=>{
         req.flash("error", "Sorry you're not an admin")
         res.redirect("back")
     }else{
+        
+    const token = jwt.sign(
+        {
+          sub: process.env.ADMIN_ID,
+          username: req.body.username,
+        },
+        'fileupload',
+        { expiresIn: '3 hours' }
+      );
+    
+      // save and pass token as cookie
+      res.cookie('token', token, {
+        // expiresIn: new Date() + 1000,
+        maxAge: 10000, // 10 minutes
+        httpOnly: true,
+      });
+    
+      // send a status code of 200
         res.redirect("/admin/page")
     }
 })
 
-app.get("/admin/page", (req, res)=>{
+app.get("/admin/page", withAuth ,(req, res)=>{
 
     User.find({}, (err, foundUsers)=>{
         if(err || !foundUsers){
@@ -221,6 +263,18 @@ app.get("/admin/page", (req, res)=>{
             res.redirect("/")
         }else{
             res.render("admin-page", {users: foundUsers})
+        }
+    })
+})
+
+app.get("/admin/page/:id/delete", (req, res)=>{
+    User.findById(req.params.id, (err, foundUser)=>{
+        if(err || !foundUser){
+            console.log(err);
+            req.flash("error", "An error occured while trying to delete user")
+            return res.redirect("back")
+        }else{
+           return res.render("delete", {user: foundUser})
         }
     })
 })
@@ -234,7 +288,7 @@ app.delete("/admin/page/:id/delete", (req, res)=>{
         }else {
             console.log(removedUser);
             req.flash("success", "User Removed Successfully");
-            return res.redirect("back")
+            return res.redirect("/admin/page")
         }
     })
 })
