@@ -101,7 +101,7 @@ var user = {
 
 app.post("/register", (req, res)=>{
     User.findOne({"email": req.body.email}, (err, foundMail)=>{
-        if(err || !foundMail){
+        if(err){
             console.log(err)
             req.flash("error", err)
             return res.redirect("/")
