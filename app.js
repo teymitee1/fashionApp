@@ -185,8 +185,7 @@ app.get('/paystack/callback', (req,res) => {
                     subject: 'Registeration Complete',
                     html: "Congratulations: "+ registeredUser.firstname + " "+registeredUser.lastname + 
                     "<br />Your registeration to the following classes: "+registeredUser.course+
-                    " is complete. <br />Look forward to seeing you at I Fashion Network"+
-                    +"<br />Time: "+time+"am <br />Speakers: "+registeredUser.facilitator,
+                    " is complete. <br />Look forward to seeing you at I Fashion Network <br />Time : "+time+"am <br />Speakers: "+registeredUser.facilitator,
                 }
                 smtpTransport.sendMail(mail, function(error, response){
                     if(error){
