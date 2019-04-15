@@ -294,21 +294,6 @@ app.delete("/admin/page/:id/delete", (req, res)=>{
     })
 })
 
-// User.create({
-//     firstname: "Temitope",
-//     lastname: "Enikankiselu",
-//     amount: "2000",
-//     gender: "Male",
-//     age: "27",
-//     phone: "07060477088",
-//     payment_status: "paid",
-//     reference: "llxl252",
-//     email: "teymitee@gmail.com",
-//     occupation: "Graduate",
-//     facilitator: "Tope",
-//     course: "Web design"
-// })
-
 app.get("*", (req, res) => {
     res.render("404")
 })
