@@ -35,7 +35,7 @@
 
                 <div>
                     <label for="dob">Date of Birth</label>
-                    <input type="date" name="age" id="dob">
+                    <input type="date" name="age" id="dob" min="1939-01-01"  max="2009-12-31">
                     <span class="fieldErr" id="dobError"></span>
                 </div>
 
@@ -128,7 +128,7 @@
                 <div class="span-2">
                     <h4 class="text-center top-margin-0">Course Choice</h4>
                 </div>
-                <div>
+                <!-- <div>
                     <label for="firstchoice">First course</label>
                     <select name="course[]" form="sign-up" id="firstchoice">
                         <option selected value="select">Select</option>
@@ -159,6 +159,24 @@
                         <h2>Amount to Pay</h2>
                     </label>
                     <input class="text-center amount" type="text" name="amount" value="2000" readonly>
+                </div> -->
+                <div class="span-2">
+                    <label>
+                        <input type="checkbox" name="course[]" id="course" value="Fashion Styling"> Fashion Styling
+                    </label>
+                    <label>
+                        <input type="checkbox" name="course[]" id="course" value="Modelling"> Modelling
+                    </label>
+                    <label>
+                        <input type="checkbox" name="course[]" id="course" value="Hair Styling]"> Hair Styling
+                    </label>
+                    <label>
+                        <input type="checkbox" name="course[]" id="course" value="Photography"> Photography
+                    </label>
+                    <label>
+                        <input type="checkbox" name="course[]" id="course" value="Others"> Others
+                    </label>
+                    <span class="fieldErr" id="courseError"></span>
                 </div>
 
                 <div class="span-2">

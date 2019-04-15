@@ -1,11 +1,21 @@
 <% include partials/header %>
-<br>
-<br>
-<br>
-<%=user%>
-<form action="/admin/page/<%= user._id%>/delete?_method=DELETE" method="post">
-    <button type="submit" id="del" name="<%= user.firstname%> <%=  user.lastname %>"
-            class="admin-delete-btn">Delete</button>
-</form>
+<div class="user-info-wrap">
+    <h2>User Information</h2>
+    <p><span>Name:</span> <%=user.firstname + " " +  user.lastname%></p>
+    <p><span>Gender:</span>  <%=user.gender%></p>
+    <p><span>Phone:</span> <%=user.phone%></p>
+    <p><span>Email:</span> <%=user.email%></p>
+    <p><span>Occupation:</span> <%=user.occupation%></p>
+    <p><span>Facilitator:</span> <%=user.facilitator%></p>
+    <p><span>Courses:</span> <%=user.course%></p>
+    <p><span>Payment Reference:</span> <%=user.reference%></p>
+    <p><span>Payment Status:</span> <%=user.payment_status%></p>
+    
+    <form action="/admin/page/<%= user._id%>/delete?_method=DELETE" method="post">
+        <button type="submit" id="del" name="<%= user.firstname%> <%=  user.lastname %>"
+                class="admin-delete-btn">Delete</button>
+    </form>
+</div>
+
 
 <% include partials/footer2 %>

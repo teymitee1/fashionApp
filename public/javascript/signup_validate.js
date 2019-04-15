@@ -1,4 +1,24 @@
-window.onload = autoRemove();
+let course = document.querySelectorAll("#course");
+
+for(var i = 0; i < course.length; i++){
+	course[i].addEventListener('click', function(){
+		let checkedbox = document.querySelectorAll("#course:checked");
+		if(checkedbox.length == 2){
+			let unchecked = document.querySelectorAll("#course:not(:checked)");
+			unchecked.forEach(function (checkbox){
+				checkbox.disabled = true;
+			})
+		}else if(checkedbox.length < 2) {
+			let disabled = document.querySelectorAll("#course:disabled");
+			disabled.forEach(function(disabled){
+				disabled.disabled = false;
+			})
+		}
+	})
+}
+
+
+
 
 
 let submit = document.getElementById('signUp');
@@ -96,12 +116,7 @@ submit.addEventListener('click', function (e) {
 	let business = document.getElementById("business"),
 		businessVal = business.value;
 	if (businessVal.trim() == '') {
-		let businessError = document.getElementById("businessError");
-		businessError.innerHTML = "*** Please supply your business name or your organization";
-		e.preventDefault();
-		business.addEventListener('input', function () {
-			businessError.innerHTML = "";
-		})
+		business.value = "Nil";
 	}
 
 	let facilitator = document.getElementById("facilitator"),
@@ -115,26 +130,12 @@ submit.addEventListener('click', function (e) {
 		})
 	}
 
-	let firstcourse = document.getElementById("firstchoice"),
-		firstcourseVal = firstcourse.value;
-	if (firstcourseVal === 'select') {
-		let firstchoiceError = document.getElementById("firstchoiceError");
-		firstchoiceError.innerHTML = "*** Choose a course"
+	let checkedbox = document.querySelectorAll("#course:checked");
+	if(checkedbox.length < 2){
+		let courseError = document.getElementById("courseError");
+		courseError.innerHTML = "*** Please select two courses";
 		e.preventDefault();
-		firstcourse.addEventListener('input', function () {
-			firstchoiceError.innerHTML = "";
-		})
-	}
-
-	let secondcourse = document.getElementById("secondchoice"),
-		secondcourseVal = secondcourse.value;
-	if (secondcourseVal === 'select') {
-		let secondchoiceError = document.getElementById("secondchoiceError");
-		secondchoiceError.innerHTML = "*** Choose a course"
-		e.preventDefault();
-		secondcourse.addEventListener('input', function () {
-			secondchoiceError.innerHTML = "";
-		})
+		
 	}
 	setTimeout(clearAllErr, 10000)
 })
@@ -146,16 +147,28 @@ function clearAllErr() {
 	}
 }
 
-function removeFlash() {
-	var flashContainerId = document.getElementById('flash-messages');
-	if (flashContainerId.style.display = "block") {
-		flashContainerId.style.display = 'none';
-	}
-}
 
-function autoRemove() {
-	setTimeout(function () {
-		removeFlash();
-	}, 5000);
-};
 
+
+	// let firstcourse = document.getElementById("firstchoice"),
+	// 	firstcourseVal = firstcourse.value;
+	// if (firstcourseVal === 'select') {
+	// 	let firstchoiceError = document.getElementById("firstchoiceError");
+	// 	firstchoiceError.innerHTML = "*** Choose a course"
+	// 	e.preventDefault();
+	// 	firstcourse.addEventListener('input', function () {
+	// 		firstchoiceError.innerHTML = "";
+	// 	})
+	// }
+
+	// let secondcourse = document.getElementById("secondchoice"),
+	// 	secondcourseVal = secondcourse.value;
+	// if (secondcourseVal === 'select') {
+	// 	let secondchoiceError = document.getElementById("secondchoiceError");
+	// 	secondchoiceError.innerHTML = "*** Choose a course"
+	// 	e.preventDefault();
+	// 	secondcourse.addEventListener('input', function () {
+	// 		secondchoiceError.innerHTML = "";
+
+	// 	})
+	// }
