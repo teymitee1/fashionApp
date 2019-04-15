@@ -107,7 +107,7 @@ app.post("/register", (req, res)=>{
             console.log(err)
             req.flash("error", err)
             return res.redirect("/")
-        }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""|| req.body.state.trim() == ""){
+        }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""|| req.body.state == ""){
             console.log("incomplete Form Details");
             req.flash("error", "Incomplete Form Details")
             res.redirect("/register")
@@ -194,6 +194,7 @@ app.get('/paystack/callback', (req,res) => {
                        return res.redirect("/success/"+registeredUser._id)
                     }else{
                         console.log(mail)
+                        console.log(response, "response")
                         // res.send("successful, a mail has been sent to you")
                         req.flash("success", "Registeration Successful, a mail has been sent to you")
                         res.redirect("/success/"+registeredUser._id)
