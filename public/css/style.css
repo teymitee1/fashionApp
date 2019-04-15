@@ -74,18 +74,30 @@ font-size: 13px;
 
 
 .header-title {
-	padding: 2rem 2rem;
+	padding: 4rem 3rem;
 	letter-spacing: 2px;
+	background: url("/images/sponsor.jpg") no-repeat center center;
+	background-size: cover;
+	background-blend-mode: hard-light;
+	background-color: darkcyan;
 
 }
 
 .header-title h1 {
 	font-size: 3em;
 	margin-bottom: 0;
+	color: white;
+	
+}
+.header-title p {
+	color: cadetblue;
 }
 
 .header-title .btn {
 	margin-top: 10vh;
+	background-color: rgba(0, 0, 0, 0.7) !important;
+	box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
+	width: 50% !important;
 }
 
 .header-content {
@@ -434,16 +446,17 @@ text-align: center;
 .header-title {
 	grid-column: span 2;
 	text-align: center;
-	background: url("/images/images.jpeg") no-repeat center center;
-	background-size: cover;
 	width: 100%;
 	margin: 0;
 	position: relative;
 	top: -52px;
 	height: 100%;
+	color: white;
+	padding: 5rem 1rem;
 }
 .header-title .btn {
 	margin: 4vh auto;
+	background-color: rgba(0, 0, 255, 0.7);
 }
 .header-content {
 	display: none;

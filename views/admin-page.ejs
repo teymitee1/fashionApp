@@ -25,7 +25,8 @@
                 <td><%=user.course%></td>
                 <td><%=user.facilitator%></td>
                 <td><%=user.payment_status%></td>
-                <td><a href="/admin/page/<%= user._id%>/delete" class="admin-delete-btn">Delete</a></td>
+                <td><%=user.reference%></td>
+                <td><a href="/admin/page/<%= user._id%>/delete" class="btn btn-blue">Delete Entry</a></td>
             </tr>
             <%})%>
         </table>
