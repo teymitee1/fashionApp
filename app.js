@@ -96,6 +96,8 @@ var user = {
     email: "",
     occupation: "",
     facilitator: "",
+    state: "",
+    business: "",
     course: ""
 }
 
@@ -105,7 +107,7 @@ app.post("/register", (req, res)=>{
             console.log(err)
             req.flash("error", err)
             return res.redirect("/")
-        }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""){
+        }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""|| req.body.state.trim() == ""){
             console.log("incomplete Form Details");
             req.flash("error", "Incomplete Form Details")
             res.redirect("/register")
@@ -124,6 +126,8 @@ app.post("/register", (req, res)=>{
             user.email = req.body.email;
             user.course = req.body.course;
             user.occupation = req.body.occupation;
+            user.state = req.body.state;
+            user.business = req.body.business;
             user.facilitator = req.body.facilitator;
             const form = {
                 fullName: user.firstname + " " + user.lastname,
