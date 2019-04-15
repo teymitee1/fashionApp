@@ -13,7 +13,7 @@ const   express         = require('express'),
         app             = express();
 
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const { initializePayment, verifyPayment } = require('./config/paystack')(request);
 
@@ -173,13 +173,16 @@ app.get('/paystack/callback', (req,res) => {
                 req.flash("error", err)
 
             }else{
-                console.log(registeredUser)
+                console.log(registeredUser);
+                var time = 8;
                 var mail = {
                     from: "Ibadan Fashion Week",
                     to: registeredUser.email,
                     subject: 'Registeration Complete',
                     html: "Congratulations: "+ registeredUser.firstname + " "+registeredUser.lastname + 
-                    "<br />Your Payment has been recieved and confirmed for ibadan fashion week. <br />Please come along to the event with this mail as proof",
+                    "<br />Your registeration to the following classes: "+registeredUser.course+
+                    " is complete. <br />Look forward to seeing you at I Fashion Network"+
+                    +"<br />Time: "+time+"am <br />Speakers: "+registeredUser.facilitator,
                 }
                 smtpTransport.sendMail(mail, function(error, response){
                     if(error){
