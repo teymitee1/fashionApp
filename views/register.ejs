@@ -35,7 +35,7 @@
 
                 <div>
                     <label for="dob">Date of Birth</label>
-                    <input type="date" name="age" id="dob" min="1939-01-01"  max="2009-12-31">
+                    <input type="date" name="age" id="dob" min="1939-01-01" max="2009-12-31">
                     <span class="fieldErr" id="dobError"></span>
                 </div>
 
@@ -126,40 +126,8 @@
                     <span class="fieldErr" id="facilitatorError"></span>
                 </div>
                 <div class="span-2">
-                    <h4 class="text-center top-margin-0">Course Choice</h4>
+                    <h4 class="top-margin-0">Course Choice</h4>
                 </div>
-                <!-- <div>
-                    <label for="firstchoice">First course</label>
-                    <select name="course[]" form="sign-up" id="firstchoice">
-                        <option selected value="select">Select</option>
-                        <option value="Fashion Styling">Fashion Styling</option>
-                        <option value="Modelling">Modelling</option>
-                        <option value="Hair Styling">Hair Stylling</option>
-                        <option value="Photography">Photography</option>
-                        <option value="Others">Others</option>
-                    </select>
-                    <span class="fieldErr" id="firstchoiceError"></span>
-                </div>
-
-                <div>
-                    <label for="secondchoice">Second course</label>
-                    <select name="course[]" form="sign-up" id="secondchoice">
-                        <option selected value="select">Select</option>
-                        <option value="Fashion Styling">Fashion Styling</option>
-                        <option value="Modelling">Modelling</option>
-                        <option value="Hair Styling">Hair Stylling</option>
-                        <option value="Photography">Photography</option>
-                        <option value="Others">Others</option>
-                    </select>
-                    <span class="fieldErr" id="secondchoiceError"></span>
-                </div>
-
-                <div class="span-2">
-                    <label class="text-center amount-header" for="amount">
-                        <h2>Amount to Pay</h2>
-                    </label>
-                    <input class="text-center amount" type="text" name="amount" value="2000" readonly>
-                </div> -->
                 <div class="span-2">
                     <label>
                         <input type="checkbox" name="course[]" id="course" value="Fashion Styling"> Fashion Styling
@@ -178,7 +146,12 @@
                     </label>
                     <span class="fieldErr" id="courseError"></span>
                 </div>
-
+                <div class="span-2">
+                    <label class="text-center amount-header" for="amount">
+                        <h2>Amount to Pay</h2>
+                    </label>
+                    <input class="text-center amount" type="text" name="amount" value="2000" readonly>
+                </div>
                 <div class="span-2">
                     <button class="btn btn-blue" id="signUp">Sign Up</button>
                 </div>
