@@ -4,7 +4,7 @@
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	-ms-box-sizing: border-box;
-	font-family: sans-serif;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 html, body {
@@ -13,6 +13,25 @@ html, body {
 	height: 100%;
 }
 
+.desc {
+	margin: 0;
+	font-style: italic;
+	font-size: 13px;
+	padding: 0.3rem 0.5rem;
+}
+
+.speaker {
+	margin: 0;
+	padding: 0.3rem;
+	background-color: rgba(95, 158, 160, 0.68);
+}
+
+.meta {
+	font-style: italic;
+	font-size: 10px;
+	white-space: nowrap;
+	color: white;
+}
 
 .container {
 	height: 100%;
@@ -74,28 +93,18 @@ font-size: 13px;
 
 
 .header-title {
-	padding: 4rem 3rem;
-	letter-spacing: 2px;
-	background: url("/images/sponsor.jpg") no-repeat center center;
-	background-size: cover;
-	background-blend-mode: hard-light;
-	background-color: darkcyan;
-
+	padding: 4rem 2rem;
 }
 
 .header-title h1 {
 	font-size: 3em;
 	margin-bottom: 0;
-	color: white;
+	letter-spacing: 2px;
 	
-}
-.header-title p {
-	color: cadetblue;
 }
 
 .header-title .btn {
 	margin-top: 10vh;
-	background-color: rgba(0, 0, 0, 0.7) !important;
 	box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
 	width: 50% !important;
 }
@@ -121,7 +130,7 @@ font-size: 13px;
 	position: relative;
 	font-size: 2rem;
 	text-shadow: 1px 1px 4px black;
-	padding-top: 6rem;
+	padding-top: 3rem;
 }
 
 .slide-wrapper {
@@ -183,10 +192,10 @@ margin-bottom: 30px;
 .fab {
 	background-color: white;
 	border-radius: 100%;
-	font-size: 12px;
 	color: black;
 	padding: 8px;
-	font-size: 1.2rem !important;
+	font-size: 15px !important;
+	margin: 0 0.5rem;
 }
 
 .fab:hover {
@@ -445,13 +454,13 @@ text-align: center;
 
 .header-title {
 	grid-column: span 2;
+	background: url(/images/images.jpeg);
 	text-align: center;
 	width: 100%;
 	margin: 0;
 	position: relative;
 	top: -52px;
 	height: 100%;
-	color: white;
 	padding: 5rem 1rem;
 }
 .header-title .btn {

@@ -13,7 +13,7 @@ const   express         = require('express'),
         app             = express();
 
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const { initializePayment, verifyPayment } = require('./config/paystack')(request);
 
