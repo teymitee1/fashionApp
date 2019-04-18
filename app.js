@@ -13,7 +13,7 @@ const   express         = require('express'),
         app             = express();
 
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const { initializePayment, verifyPayment } = require('./config/paystack')(request);
 
@@ -95,7 +95,8 @@ var user = {
     reference: "",
     email: "",
     occupation: "",
-    facilitator: "",
+    state: "",
+    business: "",
     course: ""
 }
 
@@ -105,7 +106,7 @@ app.post("/register", (req, res)=>{
             console.log(err)
             req.flash("error", err)
             return res.redirect("/")
-        }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""){
+        }else if(req.body.email.trim() == "" || req.body.firstname.trim() == "" || req.body.lastname.trim() == "" ||req.body.age.trim() == "" ||req.body.amount.trim() == "" || req.body.course == "" || req.body.gender == "" || req.body.phone.trim() == ""|| req.body.state == ""){
             console.log("incomplete Form Details");
             req.flash("error", "Incomplete Form Details")
             res.redirect("/register")
@@ -124,7 +125,8 @@ app.post("/register", (req, res)=>{
             user.email = req.body.email;
             user.course = req.body.course;
             user.occupation = req.body.occupation;
-            user.facilitator = req.body.facilitator;
+            user.state = req.body.state;
+            user.business = req.body.business;
             const form = {
                 fullName: user.firstname + " " + user.lastname,
                 amount: Number(req.body.amount),
@@ -173,13 +175,15 @@ app.get('/paystack/callback', (req,res) => {
                 req.flash("error", err)
 
             }else{
-                console.log(registeredUser)
+                console.log(registeredUser);
+                var time = 12;
                 var mail = {
                     from: "Ibadan Fashion Week",
                     to: registeredUser.email,
                     subject: 'Registeration Complete',
                     html: "Congratulations: "+ registeredUser.firstname + " "+registeredUser.lastname + 
-                    "<br />Your Payment has been recieved and confirmed for ibadan fashion week. <br />Please come along to the event with this mail as proof",
+                    "<br />Your registeration to the following classes: "+registeredUser.course+
+                    " is complete. <br />Look forward to seeing you at I Fashion Network <br />Time : "+time+"am <br />",
                 }
                 smtpTransport.sendMail(mail, function(error, response){
                     if(error){
@@ -188,6 +192,7 @@ app.get('/paystack/callback', (req,res) => {
                        return res.redirect("/success/"+registeredUser._id)
                     }else{
                         console.log(mail)
+                        console.log(response, "response")
                         // res.send("successful, a mail has been sent to you")
                         req.flash("success", "Registeration Successful, a mail has been sent to you")
                         res.redirect("/success/"+registeredUser._id)
