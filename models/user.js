@@ -30,10 +30,6 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    facilitator:  {
-        type: String,
-        required: true,
-    },
     course:  {
         type: String,
         required: true,

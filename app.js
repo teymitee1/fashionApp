@@ -95,7 +95,6 @@ var user = {
     reference: "",
     email: "",
     occupation: "",
-    facilitator: "",
     state: "",
     business: "",
     course: ""
@@ -128,7 +127,6 @@ app.post("/register", (req, res)=>{
             user.occupation = req.body.occupation;
             user.state = req.body.state;
             user.business = req.body.business;
-            user.facilitator = req.body.facilitator;
             const form = {
                 fullName: user.firstname + " " + user.lastname,
                 amount: Number(req.body.amount),
@@ -185,7 +183,7 @@ app.get('/paystack/callback', (req,res) => {
                     subject: 'Registeration Complete',
                     html: "Congratulations: "+ registeredUser.firstname + " "+registeredUser.lastname + 
                     "<br />Your registeration to the following classes: "+registeredUser.course+
-                    " is complete. <br />Look forward to seeing you at I Fashion Network <br />Time : "+time+"am <br />Speakers: "+registeredUser.facilitator,
+                    " is complete. <br />Look forward to seeing you at I Fashion Network <br />Time : "+time+"am <br />",
                 }
                 smtpTransport.sendMail(mail, function(error, response){
                     if(error){
