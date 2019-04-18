@@ -176,7 +176,7 @@ app.get('/paystack/callback', (req,res) => {
 
             }else{
                 console.log(registeredUser);
-                var time = 8;
+                var time = 12;
                 var mail = {
                     from: "Ibadan Fashion Week",
                     to: registeredUser.email,
