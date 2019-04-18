@@ -6,7 +6,7 @@
         <form action="/register" method="POST" id="sign-up">
             <div class="form-wrap cols-2">
                 <div class="span-2">
-                    <h2>Welcome to Fashion Network</h2>
+                    <h2 class="crimson">Welcome to Fashion Network</h2>
                     <h4>Let's get you set up!</h4>
                 </div>
                 <div>
@@ -113,39 +113,67 @@
                     <span class="fieldErr" id="businessError"></span>
                 </div>
 
-                <div>
-                    <label for="facilitator">Choose Facilitator</label>
-                    <select name="facilitator" form="sign-up" id="facilitator">
-                        <option selected value="select">Select</option>
-                        <option value="facilitator 1">Facilitator 1</option>
-                        <option value="facilitator 2">Facilitator 2</option>
-                        <option value="facilitator 3">Facilitator 3</option>
-                        <option value="facilitator 4">Facilitator 4</option>
-                        <option value="facilitator 5">Facilitator 5</option>
-                    </select>
-                    <span class="fieldErr" id="facilitatorError"></span>
-                </div>
                 <div class="span-2">
-                    <h4 class="top-margin-0">Course Choice</h4>
-                </div>
-                <div class="span-2">
-                    <label>
-                        <input type="checkbox" name="course[]" id="course" value="Fashion Styling"> Fashion Styling
-                    </label>
-                    <label>
-                        <input type="checkbox" name="course[]" id="course" value="Modelling"> Modelling
-                    </label>
-                    <label>
-                        <input type="checkbox" name="course[]" id="course" value="Hair Styling]"> Hair Styling
-                    </label>
-                    <label>
-                        <input type="checkbox" name="course[]" id="course" value="Photography"> Photography
-                    </label>
-                    <label>
-                        <input type="checkbox" name="course[]" id="course" value="Others"> Others
-                    </label>
+                    <h4 class="text-center crimson">Select Masterclass</h4>
+                    <div class="masterclass-wrap">
+                        <div>
+                            <img class="speaker-img" src="/images/IMG-20190415-WA0019.jpg" alt="Emmanuel Arewa">
+                            <label>
+                                <input type="checkbox" name="course[]" id="course" value="Photography">
+                                <span>Emmanuel Arewa</span>
+                            </label>
+                            <h5>Photography</h5>
+                            <p class="theme">The art of storytelling and the role of photography/visuals in creating a
+                                sustainable fashion chain</p>
+                            <p class="duration">12:00pm - 12:45pm</p>
+                        </div>
+                        <div>
+                            <img class="speaker-img" src="/images/images.png" alt="">
+                            <label>
+                                <input type="checkbox" name="course[]" id="course" value="Modelling">
+                                <span>Uchenna Okwudima</span>
+                            </label>
+                            <h5>Modelling</h5>
+                            <p class="theme">The role of models in creating a sustainable fashion chain</p>
+                            <p class="duration">12:45pm - 1:20pm</p>
+                        </div>
+                        <div>
+                            <div>
+                                <img class="speaker-img" src="/images/images.png" alt="">
+                            </div>
+                            <label>
+                                <input type="checkbox" name="course[]" id="course" value="Makeup">
+                                <span></span>
+                            </label>
+                            <h5>Beauty</h5>
+                            <p class="theme">The role of beauty in creating a sustainable fashion chain</p>
+                            <p class="duration">1:20pm - 2:00pm</p>
+                        </div>
+                        <div>
+                            <img class="speaker-img" src="/images/sponsor.jpg" alt="">
+                            <label>
+                                <input type="checkbox" name="course[]" id="course" value="Fashion Styling">
+                                <span>Tosin Ogundadegbe</span>
+                            </label>
+                            <h5>Fashion Styling</h5>
+                            <p class="theme">The role of styling/creative direction in creating a sustainable fashion
+                            </p>
+                            <p class="duration">2:00pm - 2:35pm</p>
+                        </div>
+                        <div>
+                            <img class="speaker-img" src="/images/IMG-20190417-WA0003.jpg" alt="">
+                            <label>
+                                <input type="checkbox" name="course[]" id="course" value="Fashion Design">
+                                <span>Ejiro Amos Tafiri</span>
+                            </label>
+                            <h5>Fashion Design</h5>
+                            <p class="theme">The role of fashion design and the target market in creating sustainable fashion chain</p>
+                            <p class="duration">2:35pm - 3:30pm</p>
+                        </div>
+                    </div>
                     <span class="fieldErr" id="courseError"></span>
                 </div>
+
                 <div class="span-2">
                     <label class="text-center amount-header" for="amount">
                         <h2>Amount to Pay</h2>
