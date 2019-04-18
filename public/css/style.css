@@ -486,6 +486,8 @@ display: block;
 padding-top: 0;
 margin-top: -2rem;
 }
+
+
 .grid {
 grid-template-columns: none;
 grid-gap: 4rem;
