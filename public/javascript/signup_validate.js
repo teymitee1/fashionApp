@@ -119,21 +119,10 @@ submit.addEventListener('click', function (e) {
 		business.value = "Nil";
 	}
 
-	let facilitator = document.getElementById("facilitator"),
-		facilitatorVal = facilitator.value;
-	if (facilitatorVal === 'select') {
-		let facilitatorError = document.getElementById("facilitatorError");
-		facilitatorError.innerHTML = "*** Choose a facilitator please"
-		e.preventDefault();
-		facilitator.addEventListener('input', function () {
-			facilitatorError.innerHTML = "";
-		})
-	}
-
 	let checkedbox = document.querySelectorAll("#course:checked");
 	if(checkedbox.length < 2){
 		let courseError = document.getElementById("courseError");
-		courseError.innerHTML = "*** Please select two courses";
+		courseError.innerHTML = "*** Please select two masterclasses";
 		e.preventDefault();
 		
 	}
