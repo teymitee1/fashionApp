@@ -135,29 +135,3 @@ function clearAllErr() {
 		num[i].innerHTML = '';
 	}
 }
-
-
-
-
-	// let firstcourse = document.getElementById("firstchoice"),
-	// 	firstcourseVal = firstcourse.value;
-	// if (firstcourseVal === 'select') {
-	// 	let firstchoiceError = document.getElementById("firstchoiceError");
-	// 	firstchoiceError.innerHTML = "*** Choose a course"
-	// 	e.preventDefault();
-	// 	firstcourse.addEventListener('input', function () {
-	// 		firstchoiceError.innerHTML = "";
-	// 	})
-	// }
-
-	// let secondcourse = document.getElementById("secondchoice"),
-	// 	secondcourseVal = secondcourse.value;
-	// if (secondcourseVal === 'select') {
-	// 	let secondchoiceError = document.getElementById("secondchoiceError");
-	// 	secondchoiceError.innerHTML = "*** Choose a course"
-	// 	e.preventDefault();
-	// 	secondcourse.addEventListener('input', function () {
-	// 		secondchoiceError.innerHTML = "";
-
-	// 	})
-	// }

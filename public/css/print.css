@@ -1,6 +1,2 @@
-@media print {
-    /* This media query only applies itself to the page during printing */
-    .footer, .nav, #print-btn, ::-webkit-scrollbar { 
-      display: none !important; 
-    }
- }
+@media print{.footer, .nav, #print-btn,::-webkit-scrollbar{display:none !important;}
+}
