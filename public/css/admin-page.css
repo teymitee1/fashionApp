@@ -63,15 +63,18 @@
     box-shadow: none;
 }
 
+
 #login-btn, #print-btn {
     text-align: center;
     margin: auto;
     display: block;
 }
-
+#login-btn {
+    width: 40%;
+}
 #print-btn {
     margin-top: 2rem;
-    width: 8rem;
+    /* width: 8rem; */
 }
 
 .admin h2 {
