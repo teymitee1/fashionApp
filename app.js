@@ -43,12 +43,6 @@ app.use(function(req, res, next){
     next();
 })
 
-app.use(function(request, response){
-    if(!request.secure){
-      response.redirect("https://" + request.headers.host + request.url);
-    }
-  });
-
 // setup email config
 var smtpTransport = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -306,6 +300,7 @@ app.delete("/admin/page/:id/delete", (req, res)=>{
 })
 
 app.get("*", (req, res) => {
+    res.redirect("https://ifashionnetworkng.com" + request.url);
     res.render("404")
 })
 
