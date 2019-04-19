@@ -4,7 +4,7 @@ html, body{margin:0;padding:0;height:100%;}
 .speaker{margin:0;padding:0.3rem;background-color:rgba(95, 158, 160, 0.68);}
 .meta{font-style:italic;font-size:10px;white-space:nowrap;color:white;}
 .container{height:100%;position:relative;}
-.nav{width:100%;box-shadow:0 0 2px 0.5px lightgray;z-index:5;top:0;margin:0;padding:5px 30px;background-color:white;display:flex;position:relative;}
+.nav{width:100%;box-shadow:0 0 2px 0.5px lightgray;z-index:5;top:0;margin:0;padding:5px 15px;background-color:white;display:flex;position:relative;}
 .nav-item{display:inline-block;}
 .nav-item a img {height:40px}
 .nav-item a{color:crimson;text-decoration:none;height: 40px; width: 120px;}
