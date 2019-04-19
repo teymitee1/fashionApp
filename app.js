@@ -13,7 +13,7 @@ flash = require("connect-flash"),
     app = express();
 
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const { initializePayment, verifyPayment } = require('./config/paystack')(request);
 
@@ -21,13 +21,13 @@ const { initializePayment, verifyPayment } = require('./config/paystack')(reques
 var url = process.env.DATABASE_URL || "mongodb://localhost:27017/fashionApp";
 mongoose.connect(url, { useNewUrlParser: true });
 
-app.use(function(req,res,next) {
-    if(req.headers["x-forwarded-proto"] == "http") {
-        res.redirect("https://www.ifashionnetworkng.com" + req.url);
-    } else {
-        return next();
-    } 
-});
+// app.use(function(req,res,next) {
+//     if(req.headers["x-forwarded-proto"] == "http") {
+//         res.redirect("https://www.ifashionnetworkng.com" + req.url);
+//     } else {
+//         return next();
+//     } 
+// });
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
