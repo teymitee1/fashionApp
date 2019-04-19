@@ -50,24 +50,25 @@
 
 </div>
 
-<script src="/javascript/wow.min.js"></script>
+<script defer src="/javascript/signup_validate.js"></script>
+<script defer src="/javascript/print.js" ></script>
+
+<scrip src="/javascript/wow.min.js"></script>
 <script>
     new WOW().init();
 </script>
-<script src="/javascript/signup_validate.js"></script>
-<script src="/javascript/print.js"></script>
 <script src="/javascript/jquery.min.js"></script>
 <script src="/javascript/owl.carousel.min.js"></script>
-<script type="text/javascript">
-    var owl = $('.owl-carousel');
-    owl.owlCarousel({
-        items: 3,
-        loop: true,
-        margin: 15,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true
-    });
+<script async>
+let owl = $('.owl-carousel');
+owl.owlCarousel({
+    items: 3,
+    loop: true,
+    margin: 15,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true
+});
 </script>
 </body>
 
