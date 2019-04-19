@@ -300,15 +300,6 @@ app.delete("/admin/page/:id/delete", (req, res) => {
 })
 
 
-// set up a route to redirect http to https
-app.use(function (req, res, next) {
-    if (!/https/.test(req.protocol)) {
-        res.redirect("https://" + req.headers.host + req.url);
-    } else {
-        return next();
-    }
-});
-
 app.get("*", (req, res) => {
     res.render("404")
 })
