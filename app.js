@@ -300,7 +300,8 @@ app.delete("/admin/page/:id/delete", (req, res)=>{
 })
 
 app.get("*", (req, res) => {
-    res.render("404")
+    // res.render("404")
+    res.redirect("https://" + request.headers.host + request.url);
 })
 
 let port = process.env.PORT || 3000;
