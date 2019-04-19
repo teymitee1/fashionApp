@@ -1,6 +1,7 @@
-const express = require('express'),
+const compression = require('compression')
+    express = require('express'),
     bodyParser = require("body-parser")
-flash = require("connect-flash"),
+    flash = require("connect-flash"),
     mongoose = require("mongoose"),
     User = require("./models/user"),
     methodOverride = require("method-override"),
@@ -28,7 +29,7 @@ app.use(function(req,res,next) {
         return next();
     } 
 });
-
+app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
