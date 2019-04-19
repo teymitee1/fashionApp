@@ -23,7 +23,7 @@ mongoose.connect(url, { useNewUrlParser: true });
 
 app.use(function(req,res,next) {
     if(req.headers["x-forwarded-proto"] == "http") {
-        res.redirect("https://trinitytuts.com" + req.url);
+        res.redirect("https://www.ifashionnetworkng.com" + req.url);
     } else {
         return next();
     } 
