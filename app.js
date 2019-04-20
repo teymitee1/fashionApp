@@ -22,13 +22,13 @@ const { initializePayment, verifyPayment } = require('./config/paystack')(reques
 var url = process.env.DATABASE_URL || "mongodb://localhost:27017/fashionApp";
 mongoose.connect(url, { useNewUrlParser: true });
 
-app.use(function(req,res,next) {
-    if(req.headers["x-forwarded-proto"] == "http") {
-        res.redirect("https://www.ifashionnetworkng.com" + req.url);
-    } else {
-        return next();
-    } 
-});
+// app.use(function(req,res,next) {
+//     if(req.headers["x-forwarded-proto"] == "http") {
+//         res.redirect("https://www.ifashionnetworkng.com" + req.url);
+//     } else {
+//         return next();
+//     } 
+// });
 app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -183,7 +183,7 @@ app.get('/paystack/callback', (req, res) => {
                 req.flash("error", err)
             } else {
                 console.log(registeredUser);
-                var time = 12;
+                var time = 10;
                 var mail = {
                     from: "Ibadan Fashion Week",
                     to: registeredUser.email,
