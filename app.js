@@ -181,8 +181,6 @@ app.get('/paystack/callback', (req, res) => {
             if (err || !registeredUser) {
                 console.log(err)
                 req.flash("error", err)
-                req.flash("error", err)
-
             } else {
                 console.log(registeredUser);
                 var time = 12;
