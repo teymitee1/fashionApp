@@ -170,8 +170,20 @@ app.get('/paystack/callback', (req, res) => {
         if (error || !body) {
             //handle errors appropriately
             console.log(error)
-            req.flash("error", error)
-            return res.redirect('/');
+            user.payment_status = "Pending";
+            user.reference = "nill";  
+            User.create(user, (err, registeredUser) => {
+                if(err || !registeredUser){
+                    req.flash("error", "error in saving user details")
+                    return res.redirect('/');
+
+                }else{
+                    req.flash("error", error+" Your details have been saved and you'll be contacted")
+                    return res.redirect('/');
+
+                }
+            });
+              
         }
         response = JSON.parse(body);
         user.payment_status = "Paid";
@@ -183,14 +195,15 @@ app.get('/paystack/callback', (req, res) => {
                 req.flash("error", err)
             } else {
                 console.log(registeredUser);
-                var time = 12;
+                var time = 10;
                 var mail = {
                     from: "Ibadan Fashion Week",
                     to: registeredUser.email,
                     subject: 'Registeration Complete',
                     html: "Congratulations: " + registeredUser.firstname + " " + registeredUser.lastname +
                         "<br />Your registeration to the following classes: " + registeredUser.course +
-                        " is complete. <br />Look forward to seeing you at I Fashion Network <br />Time : " + time + "am <br />",
+                        " is complete. <br />Look forward to seeing you at I Fashion Network <br />Time : " + time + "am <br />"+
+                        "Venue: OJA Place, Heritage Mall (Shoprite) Dugbe",
                 }
                 smtpTransport.sendMail(mail, function (error, response) {
                     if (error) {
