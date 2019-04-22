@@ -22,13 +22,13 @@ const { initializePayment, verifyPayment } = require('./config/paystack')(reques
 var url = process.env.DATABASE_URL || "mongodb://localhost:27017/fashionApp";
 mongoose.connect(url, { useNewUrlParser: true });
 
-// app.use(function(req,res,next) {
-//     if(req.headers["x-forwarded-proto"] == "http") {
-//         res.redirect("https://www.ifashionnetworkng.com" + req.url);
-//     } else {
-//         return next();
-//     } 
-// });
+app.use(function(req,res,next) {
+    if(req.headers["x-forwarded-proto"] == "http") {
+        res.redirect("https://www.ifashionnetworkng.com" + req.url);
+    } else {
+        return next();
+    } 
+});
 app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -170,8 +170,20 @@ app.get('/paystack/callback', (req, res) => {
         if (error || !body) {
             //handle errors appropriately
             console.log(error)
-            req.flash("error", error)
-            return res.redirect('/');
+            user.payment_status = "Pending";
+            user.reference = "nill";  
+            User.create(user, (err, registeredUser) => {
+                if(err || !registeredUser){
+                    req.flash("error", "error in saving user details")
+                    return res.redirect('/');
+
+                }else{
+                    req.flash("error", error+" Your details have been saved and you'll be contacted")
+                    return res.redirect('/');
+
+                }
+            });
+              
         }
         response = JSON.parse(body);
         user.payment_status = "Paid";
